@@ -1,0 +1,33 @@
+html {
+  scroll-behavior: smooth;
+}
+
+/* For WebKit Browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px; /* Thin scrollbar width */
+  height: 8px; /* Thin scrollbar height */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* Transparent track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent; /* Transparent thumb */
+  border-radius: 10px; /* Optional: Rounded corners */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.1); /* Slight visibility on hover */
+}
+
+/* Optional - Scrollbar corner */
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* For Firefox */
+html {
+  scrollbar-width: none; /* Fully hide the scrollbar */
+  scrollbar-color: transparent transparent; /* Transparent thumb and track */
+}
