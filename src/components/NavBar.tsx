@@ -57,7 +57,6 @@ const NavBar = ({ isDarkMode, setIsDarkMode }: Mode) => {
                             <FaRegMoon size={24} />
                     }
                 </span>
-                {/* <a className={`${isDarkMode ? " btn bg-gray-800 text-white border-none hover:bg-gray-700" : " btn bg-black text-white hover:bg-black"}`}>Download CV</a> */}
             </div>
         </div>
     )
