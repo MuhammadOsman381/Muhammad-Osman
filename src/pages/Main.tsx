@@ -4,18 +4,14 @@ import Skills from "./Skills"
 import Projects from "./Projects"
 import Contact from "./Contact"
 
-interface Mode {
-    isDarkMode: boolean,
-}
-
-const Main = ({ isDarkMode }: Mode) => {
+const Main = () => {
     return (
-        <div className="main w-full" >
-            <Home isDarkMode={isDarkMode} />
-            <About isDarkMode={isDarkMode} />
-            <Skills isDarkMode={isDarkMode} />
-            <Projects isDarkMode={isDarkMode} />
-            <Contact isDarkMode={isDarkMode} />
+        <div className="w-full">
+            <Home />
+            <About />
+            <Skills />
+            <Projects />
+            <Contact />
         </div>
     )
 }

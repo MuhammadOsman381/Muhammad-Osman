@@ -3,8 +3,19 @@ import { FaGithub } from "react-icons/fa";
 import { BsLinkedin } from "react-icons/bs";
 import { toast } from "react-toastify";
 import { MdOutlineContentCopy } from "react-icons/md";
+import { useContext } from "react";
+import { MyContext } from "../Context";
 
-const Contact = ({ isDarkMode }: { isDarkMode: boolean }) => {
+
+interface MyContextType {
+    isDarkMode: boolean;
+    setIsDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Contact = () => {
+    const context: MyContextType | any = useContext(MyContext);
+    const { isDarkMode } = context;
+
     const copyToClipboard = (text: string) => {
         navigator.clipboard.writeText(text);
         toast.success(`${text} copied to clipboard!`);
@@ -19,7 +30,7 @@ const Contact = ({ isDarkMode }: { isDarkMode: boolean }) => {
             <footer className={`${isDarkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"} py-10`}>
                 <div className="container mx-auto text-center space-y-6">
                     <button
-                        className={`${isDarkMode ? "bg-gray-600 text-gray-300 hover:bg-gray-700" : "bg-gray-300 text-gray-600 hover:bg-gray-400"} text-sm  py-2 px-6 rounded-full`}
+                        className={`${isDarkMode ? "bg-gray-600 text-gray-300 hover:bg-gray-700" : "bg-black text-white"} text-sm  py-2 px-6 rounded-full`}
                     >
                         Get in touch
                     </button>

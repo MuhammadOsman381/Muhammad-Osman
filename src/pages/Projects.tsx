@@ -9,6 +9,8 @@ import echoo_image from "../assets/projects/images/echo.png";
 import echoo_video from "../assets/projects/videos/echoo.webm";
 import neoprompt_image from "../assets/projects/images/neoprompt.png";
 import neoprompt_video from "../assets/projects/videos/neoprompt.webm";
+import { useContext } from 'react';
+import { MyContext } from '../Context';
 
 
 interface ProjectData {
@@ -21,7 +23,15 @@ interface ProjectData {
     showVideo: boolean
 }
 
-const Projects = ({ isDarkMode }: { isDarkMode: boolean }) => {
+interface MyContextType {
+    isDarkMode: boolean;
+    setIsDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Projects = () => {
+    const context: MyContextType | any = useContext(MyContext);
+    const { isDarkMode } = context;
+    
     const projectsData: ProjectData[] = [
         {
             title: "NeoPrompt",
@@ -75,11 +85,11 @@ const Projects = ({ isDarkMode }: { isDarkMode: boolean }) => {
         }
     ]
     return (
-        <div id='projects' className={`${isDarkMode && "bg-gray-800 text-white"} flex flex-col  items-center justify-center gap-10  md:p-10 p-4 bg-gray-100 h-auto`} >
-            <button className={`${isDarkMode ? "bg-gray-600  text-gray-300 hover:bg-gray-700" : "bg-gray-300 text-gray-600   "} text-sm  py-2 px-6 rounded-full `}>
+        <div id='projects' className={`${isDarkMode && "bg-gray-800 text-white"} flex flex-col  items-center justify-center gap-6  md:p-10 p-4 bg-gray-200 h-auto`} >
+            <button className={`${isDarkMode ? "bg-gray-600  text-gray-300 hover:bg-gray-700" : "bg-black text-white   "} text-sm  py-2 px-6 rounded-full `}>
                 Projects
             </button>
-            <h2 className="text-2xl font-bold  lg:mb-8   w-full text-center">Some of the noteworthy projects I have built:</h2>
+            <h2 className="text-2xl font-bold  w-full text-center">Some of the noteworthy projects I have built:</h2>
             {
                 projectsData.map((items: ProjectData, index) => (
                     <ProjectCard data={items} index={index + 1} isDarkMode={isDarkMode} />

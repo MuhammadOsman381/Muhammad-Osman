@@ -14,8 +14,18 @@ import daisyui from "../assets/skills/daisyui.png"
 import github from "../assets/skills/github.jpeg"
 import tailwind from "../assets/skills/tailwind.png"
 import postgres from "../assets/skills/postgres.png"
+import { useContext } from "react";
+import { MyContext } from "../Context";
 
-const Skills = ({ isDarkMode }: { isDarkMode: boolean }) => {
+interface MyContextType {
+    isDarkMode: boolean;
+    setIsDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Skills = () => {
+    const context: MyContextType | any = useContext(MyContext);
+    const { isDarkMode } = context;
+
     const skills: { title: string; image: string }[] = [
         { title: "JavaScript", image: js },
         { title: "TypeScript", image: ts },
@@ -37,18 +47,18 @@ const Skills = ({ isDarkMode }: { isDarkMode: boolean }) => {
     ];
 
     return (
-        <div id="skills" className={`${isDarkMode ? "bg-gray-900 text-white" : "bg-transparent text-gray-900"} lg:h-screen flex flex-col items-center justify-center   md:p-10 p-7`}>
-           <button className={`${isDarkMode ? "bg-gray-600  text-gray-300 hover:bg-gray-700" :"bg-gray-300 text-gray-600   "} text-sm  py-2 px-6 rounded-full `}>
+        <div id="skills" className={`${isDarkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"} h-auto flex flex-col items-center justify-center   md:p-10 p-7`}>
+            <button className={`${isDarkMode ? "bg-gray-600  text-gray-300 hover:bg-gray-700" : "bg-black text-white   "} text-sm  py-2 px-6 rounded-full `}>
                 Skills
             </button>
-            <h2 className="text-2xl font-bold  mb-10 mt-10 w-full text-center">What I know?</h2>
-            <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+            <h2 className="text-2xl font-bold  mb-6 mt-6 w-full text-center">What I know?</h2>
+            <div className="w-full grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6">
                 {skills.map((skill, index) => (
                     <div
                         key={index}
-                        className={`flex flex-row items-center gap-5  ${isDarkMode ? "bg-gray-800" : "  bg-gray-100"}  p-3 rounded-lg shadow transition-transform transform hover:scale-[101%]`}
+                        className={`flex flex-col items-center gap-5  ${isDarkMode ? "bg-gray-800  border border-gray-600" : "  bg-gray-200 border border-gray-300"}   p-3 rounded-lg  transition-transform transform hover:scale-[101%]`}
                     >
-                        <span className=" p-3 bg-white rounded-xl" >
+                        <span className=" p-3 bg-white rounded-xl border border-gray-300" >
                             <img src={skill.image} alt={skill.title} className="w-16 h-16 object-contain rounded-xl" />
                         </span>
                         <p className="text-lg font-medium">{skill.title}</p>

@@ -2,18 +2,30 @@ import { FaMapMarkerAlt, FaGithub } from "react-icons/fa";
 import { BsLinkedin } from "react-icons/bs";
 import profilePic from "../assets/mo.jpeg";
 import "../App.css";
+import { useContext } from "react";
+import { MyContext } from "../Context";
 
-const Home = ({ isDarkMode }: { isDarkMode: boolean }) => {
+
+interface MyContextType {
+    isDarkMode: boolean;
+    setIsDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Home = () => {
+    
+    const context: MyContextType | any = useContext(MyContext);
+    const { isDarkMode } = context;
+
     return (
         <section
             id="home"
             className={`${isDarkMode ? "bg-gray-900 text-white" : "bg-white text-gray-700"
-                }  lg:h-[80vh] flex items-center justify-center  p-6 `}
+                }  lg:h-[80vh] h-auto  flex items-center justify-center  p-6 `}
         >
-            <div className=" max-w-screen-2xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-10">
-                
+            <div className=" max-w-screen-full px-5 lg:px-28    mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-10">
+
                 <div className="text-center md:text-left">
-                    <h1 className="text-3xl md:text-5xl font-bold">
+                    <h1 className="text-2xl  md:text-5xl font-bold">
                         Hi, I’m Osman <span className="wave">👋</span>
                     </h1>
                     <p
@@ -67,7 +79,7 @@ const Home = ({ isDarkMode }: { isDarkMode: boolean }) => {
                 {/* Right Content */}
                 <div className="relative">
                     <div
-                        className={`w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 bg-gray-800 rounded-lg overflow-hidden shadow-lg ${isDarkMode ? "shadow-gray-800" : "shadow-gray-400"
+                        className={`w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 bg-gray-800 rounded-3xl overflow-hidden  ${isDarkMode ? "shadow-gray-600 shadow-sm" : "shadow-none border border-gray-300"
                             }`}
                     >
                         <img

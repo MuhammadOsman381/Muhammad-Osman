@@ -1,13 +1,16 @@
-import React from "react";
+import { useContext } from "react";
 import { FaRegMoon } from "react-icons/fa";
 import { LuSun } from "react-icons/lu";
+import { MyContext } from "../Context";
 
-interface Mode {
+interface MyContextType {
     isDarkMode: boolean;
     setIsDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
 }
+const NavBar = () => {
+    const context: MyContextType | any = useContext(MyContext);
+    const { isDarkMode, setIsDarkMode } = context;
 
-const NavBar = ({ isDarkMode, setIsDarkMode }: Mode) => {
     return (
         <div className={isDarkMode ? `navbar bg-gray-900 border-none` : `navbar bg-base-100 border-none`}>
             <div className="navbar-start">

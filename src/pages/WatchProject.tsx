@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import ProjectCard from '../components/ProjectCard'
 import tunestream_image from "../assets/projects/images/tunestream.png";
 import tunestream_video from "../assets/projects/videos/tunestream.webm";
@@ -11,6 +11,7 @@ import echoo_image from "../assets/projects/images/echo.png";
 import echoo_video from "../assets/projects/videos/echoo.webm";
 import neoprompt_image from "../assets/projects/images/neoprompt.png";
 import neoprompt_video from "../assets/projects/videos/neoprompt.webm";
+import { MyContext } from "../Context";
 
 interface ProjectData {
     title: string,
@@ -22,12 +23,15 @@ interface ProjectData {
     showVideo: boolean
 }
 
-interface Mode {
-    isDarkMode: boolean,
+interface MyContextType {
+    isDarkMode: boolean;
+    setIsDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const WatchProject = ({ isDarkMode }: Mode) => {
+const WatchProject = () => {
     const { video_no } = useParams();
+    const context: MyContextType | any = useContext(MyContext);
+    const { isDarkMode } = context;
 
     const defaultProjectData = {
         title: "",
@@ -95,7 +99,7 @@ const WatchProject = ({ isDarkMode }: Mode) => {
         if (matchedItem) {
             setProject(matchedItem);
         }
-    }, [projectsData, video_no]);
+    }, []);
 
 
     return (

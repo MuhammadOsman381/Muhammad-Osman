@@ -4,11 +4,14 @@ import './index.css'
 import App from './App.tsx'
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from 'react-toastify';
+import { MyContextProvider } from './Context.tsx';
 
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <ToastContainer />
-    <App />
+    <MyContextProvider>
+      <ToastContainer />
+      <App />
+    </MyContextProvider>
   </StrictMode>,
 )

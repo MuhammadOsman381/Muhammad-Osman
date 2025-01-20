@@ -1,13 +1,26 @@
+import { useContext } from "react";
 import profilePic from "../assets/mo.jpeg";
+import { MyContext } from "../Context";
 
-const About = ({ isDarkMode }: { isDarkMode: boolean }) => {
+
+interface MyContextType {
+    isDarkMode: boolean;
+    setIsDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const About = () => {
+
+    const context: MyContextType | any = useContext(MyContext);
+    const { isDarkMode } = context;
+
+
     return (
         <section
             id="about"
-            className={`${isDarkMode ? "bg-gray-800 text-white" : "bg-gray-100 text-gray-700"
+            className={`${isDarkMode ? "bg-gray-800 text-white" : "bg-gray-200 text-gray-700"
                 }   lg:h-auto border-none flex flex-col items-center justify-center py-12 px-6 md:px-12`}
         >
-            <button className={`${isDarkMode ? "bg-gray-600  text-gray-300 hover:bg-gray-700" :"bg-gray-300 text-gray-600   "} text-sm mb-10 py-2 px-6 rounded-full `}>
+            <button className={`${isDarkMode ? "bg-gray-600  text-gray-300 hover:bg-gray-700" : "bg-black text-white   "} text-sm mb-6 py-2 px-6 rounded-full `}>
                 About
             </button>
             <div className=" flex flex-col md:flex-row  items-center max-w-6xl gap-12">
