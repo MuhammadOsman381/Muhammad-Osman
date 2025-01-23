@@ -34,14 +34,9 @@ const Home = () => {
                     >
                         I’m a passionate full stack developer with expertise in{" "}
                         <span className="text-indigo-400">React.js</span> and{" "}
-                        <span className="text-indigo-400">Node.js</span>, and a little
-                        understanding of{" "}
-                        <span className="text-indigo-400">Machine Learning</span>. With over
+                        <span className="text-indigo-400">Node.js</span>. With over
                         1 year of experience in web development, I have worked on building
                         efficient, user-friendly, and visually appealing digital solutions.
-                        I enjoy solving complex problems, continuously learning new
-                        technologies, and delivering impactful projects that meet both user
-                        and business needs.
                     </p>
                     <div
                         className={`mt-6 flex flex-col sm:flex-row items-center gap-4 ${isDarkMode ? "text-gray-400" : "text-gray-500"

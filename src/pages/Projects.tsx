@@ -31,7 +31,7 @@ interface MyContextType {
 const Projects = () => {
     const context: MyContextType | any = useContext(MyContext);
     const { isDarkMode } = context;
-    
+
     const projectsData: ProjectData[] = [
         {
             title: "NeoPrompt",
