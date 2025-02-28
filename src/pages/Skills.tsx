@@ -40,8 +40,8 @@ const Skills = () => {
         { title: "PostgreSql", image: postgres },
         { title: "Spring Boot", image: springBoot },
         { title: "Tailwind CSS", image: tailwind },
-        { title: "ShadCN", image: shadcn },
-        { title: "Daisy UI", image: daisyui },
+        // { title: "ShadCN", image: shadcn },
+        // { title: "Daisy UI", image: daisyui },
         { title: "Socket IO", image: socket },
         { title: "GitHub", image: github },
     ];

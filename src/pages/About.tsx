@@ -23,8 +23,8 @@ const About = () => {
             <button className={`${isDarkMode ? "bg-gray-600  text-gray-300 hover:bg-gray-700" : "bg-black text-white   "} text-sm mb-6 py-2 px-6 rounded-full `}>
                 About
             </button>
-            <div className=" flex flex-col md:flex-row  items-center max-w-6xl gap-12">
-                <div className="w-full md:w-1/3    flex justify-center">
+            <div className=" flex flex-col md:flex-row  items-center justify-center max-w-6xl gap-12">
+                {/* <div className="w-full md:w-1/3    flex justify-center">
                     <div className="relative bg-gray-800 rounded-lg overflow-hidden shadow-lg w-64 h-64 md:w-full md:h-auto">
                         <img
                             src={profilePic}
@@ -32,8 +32,8 @@ const About = () => {
                             className="object-cover w-full h-full rounded-lg"
                         />
                     </div>
-                </div>
-                <div className="w-full md:w-2/3">
+                </div> */}
+                <div className=" w-full text-center md:w-2/3">
                     <h2 className="text-3xl font-bold mb-4">
                         Curious about me? Here you have it:
                     </h2>

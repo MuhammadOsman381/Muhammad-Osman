@@ -26,7 +26,7 @@ const ProjectCard = ({ data, index, isDarkMode }: ProjectData) => {
                 } rounded-2xl flex flex-col ${index % 2 === 0 ? "lg:flex-row-reverse" : "lg:flex-row"
                 } overflow-hidden border-b-2    `}
         >
-            <div className="w-full  lg:w-1/2 bg-transparent flex justify-center items-center p-4 lg:p-6">
+            <div className="w-full  lg:w-[40%] bg-transparent flex justify-center items-center p-4 lg:p-6">
                 {!data.showVideo ? (
                     <video
                         src={data.video}
@@ -43,7 +43,7 @@ const ProjectCard = ({ data, index, isDarkMode }: ProjectData) => {
                 )}
             </div>
             <div
-                className={`w-full lg:w-1/2  flex flex-col justify-center ${isDarkMode ? "bg-gray-900" : "bg-white"
+                className={`w-full lg:w-[60%]  flex flex-col justify-center ${isDarkMode ? "bg-gray-900" : "bg-white"
                     } px-6 py-6 sm:px-8 sm:py-8`}
             >
                 <h3
