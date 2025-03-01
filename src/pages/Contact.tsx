@@ -56,7 +56,7 @@ const Contact = () => {
 
                         <div className="flex justify-center items-center space-x-2">
                             <span className="text-lg">📞</span>
-                            <span className={`${isDarkMode ? "text-gray-300" : "text-gray-600"}`}>+92 3466762106</span>
+                            <span className={`${isDarkMode ? "text-gray-300" : "text-gray-600"}`}>+92 3188523220</span>
                             <button
                                 className={`${isDarkMode ? "text-gray-400 hover:text-gray-200" : "text-gray-600 hover:text-gray-800"}`}
                                 onClick={() => copyToClipboard("+92 3466762106")}

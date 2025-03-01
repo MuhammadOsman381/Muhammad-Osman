@@ -9,7 +9,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path='/' element={<Main />} />
-        <Route path="watch/:video_no" element={<WatchProject />} />
+        <Route path="/watch/:video_no" element={<WatchProject />} />
       </Routes>
     </BrowserRouter>
   );
