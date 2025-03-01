@@ -2,8 +2,8 @@
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
   "headers": [
     {
-      "source": "/static/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "max-age=31536000" }]
+      "source": "/static/js/(.*).js",
+      "headers": [{ "key": "Content-Type", "value": "application/javascript" }]
     }
   ]
 }
