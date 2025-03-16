@@ -12,6 +12,15 @@ import echoo_video from "../assets/projects/videos/echoo.webm";
 import neoprompt_image from "../assets/projects/images/neoprompt.png";
 import neoprompt_video from "../assets/projects/videos/neoprompt.webm";
 import { MyContext } from "../Context";
+import bloggerHeaven_image from "../assets/projects/images/blogger_heaven.png"
+import bloggerHeaven_video from "../assets/projects/videos/bloggerHeaven.webm"
+import queryDocs_image from "../assets/projects/images/QueryDocs.png"
+import queryDocs_video from "../assets/projects/videos/queryDocs.webm"
+import aiTubeSummerizer_image from "../assets/projects/images/aiTubeSummerizer.jpeg"
+import aiTubeSummerizer_video from "../assets/projects/videos/aiTubeSummerizer.webm"
+import chatSphere_image from "../assets/projects/images/chatSphere.png"
+import chatSphere_video from "../assets/projects/videos/chatSphere.webm"
+
 
 interface ProjectData {
     title: string,
@@ -44,8 +53,43 @@ const WatchProject = () => {
     }
 
     const [project, setProject] = useState<ProjectData>(defaultProjectData)
-
     const projectsData: ProjectData[] = [
+        {
+            title: "AI TubeSummarizer",
+            description: "AI TubeSummarizer is an intelligent video summarization tool that simplifies content consumption. Users can input a YouTube URL, and the app retrieves the transcript using the YouTube API. The transcript is then processed by the Google Gemini model, which generates a concise and insightful summary of the video. This makes it easier for users to quickly grasp key points without watching the entire video.",
+            tech_stack: ["Flask", "React JS", "Google Gemini API", "Youtube API", "TypeScript"],
+            image: aiTubeSummerizer_image,
+            video: aiTubeSummerizer_video,
+            github_link: "https://github.com/MuhammadOsman381/AI-TubeSummarizer",
+            showVideo: false
+        },
+        {
+            title: "QueryDocs",
+            description: "QueryDocs is an AI-powered document assistant that leverages Google Gemini models to enhance PDF interactions. Users can upload PDFs, and the AI processes the content, allowing them to ask any questions about the document. With intelligent search and instant responses, QueryDocs makes reading and extracting information from PDFs seamless and efficient.",
+            tech_stack: ["Node JS", "React JS", "Google Gemini API", "TypeScript"],
+            image: queryDocs_image,
+            video: queryDocs_video,
+            github_link: "https://github.com/MuhammadOsman381/QueryDocs",
+            showVideo: false
+        },
+        {
+            title: "Chat Sphere",
+            description: "AI TubeSummarizer is an intelligent video summarization tool that simplifies content consumption. Users can input a YouTube URL, and the app retrieves the transcript using the YouTube API. The transcript is then processed by the Google Gemini model, which generates a concise and insightful summary of the video. This makes it easier for users to quickly grasp key points without watching the entire video.",
+            tech_stack: ["Node JS", "React Native", "MongoDB"],
+            image: chatSphere_image,
+            video: chatSphere_video,
+            github_link: "https://github.com/MuhammadOsman381/ReactNative_ChatSphere",
+            showVideo: false
+        },
+        {
+            title: "Blogger's Heaven",
+            description: "Blogger’s Heaven is an AI-powered blogging platform where users can create, edit, and delete accounts and blogs effortlessly. With AI-assisted content generation, users can write and manage blogs, explore others’ posts, and engage through likes, dislikes, and comments. The platform also supports tag creation for better content organization, making blogging more interactive and efficient.",
+            tech_stack: ["Node JS", "React JS", "MySQL", "Google Gemini API", "TypeScript"],
+            image: bloggerHeaven_image,
+            video: bloggerHeaven_video,
+            github_link: "https://github.com/MuhammadOsman381/Blog-App",
+            showVideo: false
+        },
         {
             title: "NeoPrompt",
             description: "NeoPrompt is a platform for managing collections and chatting with AI. Users can create an account, log in, and upload profile photos. They can create, edit, or delete collections while chatting with AI powered by Google Gemini. Chats are stored securely, and users can manage or delete their data anytime.",
@@ -92,7 +136,6 @@ const WatchProject = () => {
             showVideo: false
         }
     ];
-
     useEffect(() => {
         const matchedItem = projectsData.find((_, index) => index + 1 === Number(video_no));
         if (matchedItem) {

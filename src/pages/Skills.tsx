@@ -9,8 +9,8 @@ import laravel from "../assets/skills/laravel.png"
 import socket from "../assets/skills/socket.png"
 import springBoot from "../assets/skills/springBoot.png"
 import ts from "../assets/skills/ts.png"
-// import shadcn from "../assets/skills/shadcn.png"
-// import daisyui from "../assets/skills/daisyui.png"
+import shadcn from "../assets/skills/shadcn.png"
+import flask from "../assets/skills/flask.png"
 import github from "../assets/skills/github.jpeg"
 import tailwind from "../assets/skills/tailwind.png"
 import postgres from "../assets/skills/postgres.png"
@@ -40,8 +40,8 @@ const Skills = () => {
         { title: "PostgreSql", image: postgres },
         { title: "Spring Boot", image: springBoot },
         { title: "Tailwind CSS", image: tailwind },
-        // { title: "ShadCN", image: shadcn },
-        // { title: "Daisy UI", image: daisyui },
+        { title: "ShadCN", image: shadcn },
+        { title: "Flask", image: flask },
         { title: "Socket IO", image: socket },
         { title: "GitHub", image: github },
     ];
