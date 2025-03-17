@@ -60,7 +60,7 @@ const Projects = () => {
         },
         {
             title: "Chat Sphere",
-            description: "AI TubeSummarizer is an intelligent video summarization tool that simplifies content consumption. Users can input a YouTube URL, and the app retrieves the transcript using the YouTube API. The transcript is then processed by the Google Gemini model, which generates a concise and insightful summary of the video. This makes it easier for users to quickly grasp key points without watching the entire video.",
+            description: "Chat-Sphere is a real-time chat application that allows users to create, view, and delete accounts. Users can send friend requests to others, which can be accepted or declined. Once connected as friends, users can engage in seamless one-on-one conversations, making Chat-Sphere a simple yet effective messaging platform.",
             tech_stack: ["Node JS", "React Native", "MongoDB"],
             image: chatSphere_image,
             video: chatSphere_video,
