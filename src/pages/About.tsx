@@ -17,7 +17,7 @@ const About = () => {
     return (
         <section
             id="about"
-            className={`${isDarkMode ? "bg-gray-800 text-white" : "bg-gray-200 text-gray-700"
+            className={`${isDarkMode ? "bg-gray-800 text-white" : "bg-gray-100 text-black"
                 }   lg:h-auto border-none flex flex-col items-center justify-center py-12 px-6 md:px-12`}
         >
             <button className={`${isDarkMode ? "bg-gray-600  text-gray-300 hover:bg-gray-700" : "bg-black text-white   "} text-sm mb-6 py-2 px-6 rounded-full `}>
@@ -38,7 +38,7 @@ const About = () => {
                         Curious about me? Here you have it:
                     </h2>
                     <p
-                        className={`${isDarkMode ? "text-gray-300" : "text-gray-600"
+                        className={`${isDarkMode ? "text-gray-300" : "text-black"
                             } mb-4`}
                     >
                         I'm a passionate <span className="text-indigo-400">developer</span>{" "}
@@ -48,7 +48,7 @@ const About = () => {
                         clean code, and user-friendly experiences.
                     </p>
                     <p
-                        className={`${isDarkMode ? "text-gray-300" : "text-gray-600"
+                        className={`${isDarkMode ? "text-gray-300" : "text-black"
                             } mb-4`}
                     >
                         My journey began as a developer in 2023, and since then, I’ve
@@ -57,14 +57,14 @@ const About = () => {
                         <span className="text-indigo-400">React.js, Node.js</span>.
                     </p>
                     <p
-                        className={`${isDarkMode ? "text-gray-300" : "text-gray-600"
+                        className={`${isDarkMode ? "text-gray-300" : "text-black"
                             } mb-6`}
                     >
                         Let’s create
                         something amazing together!
                     </p>
                     <ul
-                        className={`list-disc list-inside ${isDarkMode ? "text-gray-300" : "text-gray-600"
+                        className={`list-disc list-inside ${isDarkMode ? "text-gray-300" : "text-black"
                             }`}
                     >
                         <li>BS in Computer Engineering</li>
@@ -72,7 +72,7 @@ const About = () => {
                         <li>Open to freelance projects</li>
                     </ul>
                     <p
-                        className={`mt-6 ${isDarkMode ? "text-gray-300" : "text-gray-600"
+                        className={`mt-6 ${isDarkMode ? "text-gray-300" : "text-black"
                             }`}
                     >
                         Feel free to reach out if you want to collaborate or just say hello! 😊

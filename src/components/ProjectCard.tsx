@@ -22,11 +22,11 @@ const ProjectCard = ({ data, index, isDarkMode }: ProjectData) => {
     return (
         <div
             key={index}
-            className={`${isDarkMode ? "bg-gray-700 border-gray-600" : "bg-gray-300 border-gray-400"
-                } rounded-2xl flex flex-col ${index % 2 === 0 ? "lg:flex-row-reverse" : "lg:flex-row"
-                } overflow-hidden border-b-2    `}
+            className={`border-2  ${isDarkMode ? "bg-gray-700 border-gray-600" : "bg-gray-200 border-gray-300"
+                } rounded-2xl flex flex-col ${index % 2 === 0 ? "lg:flex-row-reverse   " : "lg:flex-row"
+                } overflow-hidden     `}
         >
-            <div className="w-full  lg:w-[40%] bg-transparent flex justify-center items-center p-4 lg:p-6">
+            <div className={`w-full    ${index % 2 === 0 ? "border-l-2 border-gray-600 " : " border-r-2 border-gray-600 "}   lg:w-[40%] bg-transparent flex justify-center items-center p-4 lg:p-6`}>
                 {!data.showVideo ? (
                     <video
                         src={data.video}

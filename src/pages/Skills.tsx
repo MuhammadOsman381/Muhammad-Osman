@@ -52,11 +52,11 @@ const Skills = () => {
                 Skills
             </button>
             <h2 className="text-2xl font-bold  mb-6 mt-6 w-full text-center">What I know?</h2>
-            <div className="w-full grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6">
+            <div className="w-full grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3">
                 {skills.map((skill, index) => (
                     <div
                         key={index}
-                        className={`flex flex-col items-center gap-5  ${isDarkMode ? "bg-gray-800  border border-gray-600" : "  bg-gray-200 border border-gray-300"}   p-3 rounded-lg  transition-transform transform hover:scale-[101%]`}
+                        className={`flex flex-col justify-center items-center gap-5  ${isDarkMode ? "bg-gray-800  border-2 border-gray-600" : "  bg-gray-200 border border-gray-300"}    p-3 rounded-lg  transition-transform transform hover:scale-[101%]`}
                     >
                         <span className=" p-3 bg-white rounded-xl border border-gray-300" >
                             <img src={skill.image} alt={skill.title} className="w-16 h-16 object-contain rounded-xl" />

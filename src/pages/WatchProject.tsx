@@ -53,7 +53,7 @@ const WatchProject = () => {
     }
 
     const [project, setProject] = useState<ProjectData>(defaultProjectData)
-    
+
     const projectsData: ProjectData[] = [
         {
             title: "AI TubeSummarizer",

@@ -124,7 +124,7 @@ const Projects = () => {
     ];
 
     return (
-        <div id='projects' className={`${isDarkMode && "bg-gray-800 text-white"} flex flex-col  items-center justify-center gap-6  md:p-10 p-4 bg-gray-200 h-auto`} >
+        <div id='projects' className={`${isDarkMode && "bg-gray-800 text-white"} flex flex-col  items-center justify-center gap-6  md:p-10 p-4 bg-gray-100 h-auto`} >
             <button className={`${isDarkMode ? "bg-gray-600  text-gray-300 hover:bg-gray-700" : "bg-black text-white   "} text-sm  py-2 px-6 rounded-full `}>
                 Projects
             </button>
