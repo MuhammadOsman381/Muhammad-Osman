@@ -128,7 +128,7 @@ const Projects = () => {
             <button className={`${isDarkMode ? "bg-gray-600  text-gray-300 hover:bg-gray-700" : "bg-black text-white   "} text-sm  py-2 px-6 rounded-full `}>
                 Projects
             </button>
-            <h2 className="text-2xl font-bold  w-full text-center">Some of the noteworthy projects I have built:</h2>
+            {/* <h2 className="text-2xl font-bold  w-full text-center">Some of the noteworthy projects I have built:</h2> */}
             {
                 projectsData.map((items: ProjectData, index) => (
                     <ProjectCard data={items} index={index + 1} isDarkMode={isDarkMode} />

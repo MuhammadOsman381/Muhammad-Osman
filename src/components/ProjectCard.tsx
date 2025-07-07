@@ -21,8 +21,8 @@ interface ProjectData {
 const ProjectCard = ({ data, index, isDarkMode }: ProjectData) => {
     return (
         <div
-            key={index}
-            className={`border-2  ${isDarkMode ? "bg-gray-700 border-gray-600" : "bg-gray-200 border-gray-300"
+            key={data.title}
+            className={`  ${isDarkMode ? "bg-gray-700 " : "bg-gray-200 "
                 } rounded-2xl flex flex-col ${index % 2 === 0 ? "lg:flex-row-reverse   " : "lg:flex-row"
                 } overflow-hidden     `}
         >
@@ -77,8 +77,8 @@ const ProjectCard = ({ data, index, isDarkMode }: ProjectData) => {
                             to={`/watch/${index}`}
                             className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 sm:px-6 sm:py-2 rounded-xl flex flex-row items-center justify-center gap-2 text-xs sm:text-sm font-medium transition-all duration-200"
                         >
-                            <FaEye size={15} />
                             <span>Watch</span>
+                            <FaEye size={15} />
                         </Link>
                     )}
                     <a
@@ -87,7 +87,8 @@ const ProjectCard = ({ data, index, isDarkMode }: ProjectData) => {
                         rel="noopener noreferrer"
                         className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 sm:px-6 sm:py-2 rounded-xl flex items-center justify-center gap-2 text-xs sm:text-sm font-medium transition-all duration-200"
                     >
-                        <FaGithub size={15} /> <span>Code</span>
+                         <span>Code</span>
+                        <FaGithub size={15} />
                     </a>
                 </div>
             </div>

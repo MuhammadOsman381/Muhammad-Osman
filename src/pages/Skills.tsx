@@ -51,14 +51,14 @@ const Skills = () => {
             <button className={`${isDarkMode ? "bg-gray-600  text-gray-300 hover:bg-gray-700" : "bg-black text-white   "} text-sm  py-2 px-6 rounded-full `}>
                 Skills
             </button>
-            <h2 className="text-2xl font-bold  mb-6 mt-6 w-full text-center">What I know?</h2>
-            <div className="w-full grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3">
+            {/* <h2 className="text-2xl font-bold  mb-6 mt-6 w-full text-start">What I know?</h2> */}
+            <div className="w-full grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3 mt-6">
                 {skills.map((skill, index) => (
                     <div
                         key={index}
-                        className={`flex flex-col justify-center items-center gap-5  ${isDarkMode ? "bg-gray-800  border-2 border-gray-600" : "  bg-gray-200 border border-gray-300"}    p-3 rounded-lg  transition-transform transform hover:scale-[101%]`}
+                        className={`flex flex-col justify-center items-center gap-5  ${isDarkMode ? "bg-gray-800   " : "  bg-gray-200 "}    py-4 rounded-lg  transition-transform transform hover:scale-[101%]`}
                     >
-                        <span className=" p-3 bg-white rounded-xl border border-gray-300" >
+                        <span className={` p-4 bg-white rounded-full `} >
                             <img src={skill.image} alt={skill.title} className="w-16 h-16 object-contain rounded-xl" />
                         </span>
                         <p className="text-lg font-medium">{skill.title}</p>

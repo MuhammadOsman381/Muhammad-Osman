@@ -19,10 +19,10 @@ const Home = () => {
     return (
         <section
             id="home"
-            className={`${isDarkMode ? "bg-gray-900 text-white" : "bg-white text-gray-700"
-                }  lg:h-[80vh] h-auto  flex items-center justify-center  p-6 `}
+            className={`${isDarkMode ? "bg-gray-900 text-white" : "bg-white text-black"
+                }  lg:h-[80vh] h-[90vh]  flex items-center justify-center  p-6 `}
         >
-            <div className=" max-w-screen-full px-5 lg:px-28    mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-10">
+            <div className=" max-w-screen-full px-3 lg:px-28    mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-10">
 
                 <div className="text-center md:text-left">
                     <h1 className="text-2xl  md:text-5xl font-bold">
