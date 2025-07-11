@@ -72,7 +72,7 @@ const ProjectCard = ({ data, index, isDarkMode }: ProjectData) => {
                     ))}
                 </div>
                 <div className="flex flex-wrap gap-4">
-                    {data.showVideo && (
+                    {data.showVideo && data.title !== "Nexora" && (
                         <Link
                             to={`/watch/${index}`}
                             className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 sm:px-6 sm:py-2 rounded-xl flex flex-row items-center justify-center gap-2 text-xs sm:text-sm font-medium transition-all duration-200"
@@ -87,7 +87,7 @@ const ProjectCard = ({ data, index, isDarkMode }: ProjectData) => {
                         rel="noopener noreferrer"
                         className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 sm:px-6 sm:py-2 rounded-xl flex items-center justify-center gap-2 text-xs sm:text-sm font-medium transition-all duration-200"
                     >
-                         <span>Code</span>
+                        <span>Code</span>
                         <FaGithub size={15} />
                     </a>
                 </div>

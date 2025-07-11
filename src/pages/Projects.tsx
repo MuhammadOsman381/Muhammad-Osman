@@ -19,6 +19,7 @@ import aiTubeSummerizer_image from "../assets/projects/images/aiTubeSummerizer.j
 import aiTubeSummerizer_video from "../assets/projects/videos/aiTubeSummerizer.webm"
 import chatSphere_image from "../assets/projects/images/chatSphere.png"
 import chatSphere_video from "../assets/projects/videos/chatSphere.webm"
+import nexora_image from "../assets/projects/images/nexora.png"
 
 interface ProjectData {
     title: string,
@@ -40,6 +41,24 @@ const Projects = () => {
     const { isDarkMode } = context;
 
     const projectsData: ProjectData[] = [
+        {
+            title: "Nexora",
+            description: "Developed a full-stack SaaS application that allows users to create accounts, create chat sessions by entering a website URL or title, and scrape website content using Puppeteer. The scraped data is then processed using LangChain and Google GenAI to generate a custom AI model for each chat. Users can ask questions based on the website's content, with complete chat history tracking. The app also includes a subscription system, enabling users to unlock more chats and premium features.",
+            tech_stack: ["Node JS", "React JS", "Langchain", "Stripe", "Google Gen AI Model",],
+            image: nexora_image,
+            video: aiTubeSummerizer_video,
+            github_link: "https://github.com/MuhammadOsman381/AI-TubeSummarizer",
+            showVideo: true
+        },
+        {
+            title: "Blogger's Heaven",
+            description: "Blogger’s Heaven is an AI-powered blogging platform where users can create, edit, and delete accounts and blogs effortlessly. With AI-assisted content generation, users can write and manage blogs, explore others’ posts, and engage through likes, dislikes, and comments. The platform also supports tag creation for better content organization, making blogging more interactive and efficient.",
+            tech_stack: ["Node JS", "React JS", "MySQL", "Google Gemini API", "TypeScript"],
+            image: bloggerHeaven_image,
+            video: bloggerHeaven_video,
+            github_link: "https://github.com/MuhammadOsman381/Blog-App",
+            showVideo: true
+        },
         {
             title: "AI TubeSummarizer",
             description: "AI TubeSummarizer is an intelligent video summarization tool that simplifies content consumption. Users can input a YouTube URL, and the app retrieves the transcript using the YouTube API. The transcript is then processed by the Google Gemini model, which generates a concise and insightful summary of the video. This makes it easier for users to quickly grasp key points without watching the entire video.",
@@ -65,15 +84,6 @@ const Projects = () => {
             image: chatSphere_image,
             video: chatSphere_video,
             github_link: "https://github.com/MuhammadOsman381/ReactNative_ChatSphere",
-            showVideo: true
-        },
-        {
-            title: "Blogger's Heaven",
-            description: "Blogger’s Heaven is an AI-powered blogging platform where users can create, edit, and delete accounts and blogs effortlessly. With AI-assisted content generation, users can write and manage blogs, explore others’ posts, and engage through likes, dislikes, and comments. The platform also supports tag creation for better content organization, making blogging more interactive and efficient.",
-            tech_stack: ["Node JS", "React JS", "MySQL", "Google Gemini API", "TypeScript"],
-            image: bloggerHeaven_image,
-            video: bloggerHeaven_video,
-            github_link: "https://github.com/MuhammadOsman381/Blog-App",
             showVideo: true
         },
         {
