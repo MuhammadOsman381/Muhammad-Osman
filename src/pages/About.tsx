@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import profilePic from "../assets/mo.jpeg";
+// import profilePic from "../assets/mo.jpeg";
 import { MyContext } from "../Context";
 
 
