@@ -1,68 +1,91 @@
-import { useContext } from "react";
-import { FaRegMoon } from "react-icons/fa";
-import { LuSun } from "react-icons/lu";
+import { useContext, useState } from "react";
 import { MyContext } from "../Context";
+import { motion, useScroll } from "motion/react"
 
 interface MyContextType {
     isDarkMode: boolean;
     setIsDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
 }
+
 const NavBar = () => {
     const context: MyContextType | any = useContext(MyContext);
-    const { isDarkMode, setIsDarkMode } = context;
+    const { isDarkMode } = context;
+
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const navBg = isDarkMode ? `bg-zinc-900 text-white` : "bg-zinc-100 text-black";
+    const linkBg = isDarkMode ? `bg-zinc-800 hover:bg-zinc-700 text-white` : "bg-zinc-100 hover:bg-zinc-200 text-black";
+    const { scrollYProgress } = useScroll()
 
     return (
-        <div className={isDarkMode ? `navbar bg-gray-900 border-none` : `navbar bg-base-100 border-none`}>
-            <div className="navbar-start">
-                <div className={`dropdown ${isDarkMode && "text-white"} `}>
-                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-5 w-5"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M4 6h16M4 12h8m-8 6h16" />
-                        </svg>
+        <div
+            className={`fixed z-50 w-full transition-all duration-300 ease-in-out ${navBg} ${isMenuOpen ? "h-[320px]" : "h-[64px]"
+                }`}
+        >
+            <motion.div className="h-1 origin-left bg-white w-full" style={{ scaleX: scrollYProgress }} />
+
+            <div className="navbar px-4">
+                <div className="navbar-start">
+                    <div className={`lg:hidden`}>
+                        <button
+                            onClick={() => setIsMenuOpen(!isMenuOpen)}
+                            className="btn btn-ghost"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-6 w-6"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
                     </div>
-                    <ul
-                        tabIndex={0}
-                        className={`menu menu-sm dropdown-content ${isDarkMode ? "bg-gray-800 text-white" : "bg-base-100 "} rounded-box z-[1] mt-3 w-52 p-2 shadow`}>
-                        <li  ><a href="/">Home</a></li>
-                        <li ><a href="#about">About</a></li>
-                        <li ><a href="#skills">Skills</a></li>
-                        <li ><a href="#projects">Projects</a></li>
-                        <li ><a href="#contact">Contact</a></li>
+                    <motion.a
+                        animate={{
+                            y: [0, -10, 0],
+                        }}
+                        transition={{
+                            duration: 1,
+                            repeat: Infinity,
+                            repeatType: "loop",
+                            ease: "easeInOut",
+                        }}
+                        className={`btn btn-sm btn-ghost font-bold text-xl ${isDarkMode ? "text-white" : "text-zinc-900"}`}>
+                        {"<MO/>"}
+                    </motion.a>
+                </div>
+
+                <div className="navbar-center hidden lg:flex gap-2">
+                    <ul className="menu menu-horizontal px-1">
+                        {["Home", "About", "Skills", "Projects", "Contact"].map((item, idx) => (
+                            <li key={idx} className={`rounded-xl ml-1 ${linkBg}`}>
+                                {item === "Home" ? <a href="/">{item}</a> : <a href={`#${item.toLowerCase()}`}>{item}</a>}
+                            </li>
+                        ))}
                     </ul>
                 </div>
-                <a className={` btn btn-sm ${isDarkMode ? `text-white` : `text-gray-900`} btn-ghost font-bold text-xl motion-preset-oscillate  `}>
-                    {"<MO/>"}
-                </a>
+
+                <div className="navbar-end">
+
+                </div>
             </div>
-            <div className="navbar-center hidden lg:flex  gap-2">
-                <ul className="menu menu-horizontal px-1">
-                    <li className={` ${isDarkMode ? `text-white bg-gray-800 hover:bg-gray-700` : `text-gray-900 bg-gray-200`}  rounded-xl motion-scale-in-[0.46] motion-translate-x-in-[-1%] motion-translate-y-in-[-154%]`} ><a href="/" >Home</a></li>
-                    <li className={`${isDarkMode ? `text-white bg-gray-800 hover:bg-gray-700` : `text-gray-900 bg-gray-200`} rounded-xl ml-1 motion-scale-in-[0.46] motion-translate-x-in-[-1%] motion-translate-y-in-[-154%]`} ><a href="#about">About</a></li>
-                    <li className={`${isDarkMode ? `text-white bg-gray-800 hover:bg-gray-700` : `text-gray-900 bg-gray-200`} rounded-xl ml-1 motion-scale-in-[0.46] motion-translate-x-in-[-1%] motion-translate-y-in-[-154%]`}><a href="#skills" >Skills</a></li>
-                    <li className={`${isDarkMode ? `text-white bg-gray-800 hover:bg-gray-700` : `text-gray-900 bg-gray-200`} rounded-xl ml-1 motion-scale-in-[0.46] motion-translate-x-in-[-1%] motion-translate-y-in-[-154%]`} ><a href="#projects">Projects</a></li>
-                    <li className={`${isDarkMode ? `text-white bg-gray-800 hover:bg-gray-700` : `text-gray-900 bg-gray-200`} rounded-xl ml-1 motion-scale-in-[0.46] motion-translate-x-in-[-1%] motion-translate-y-in-[-154%]`}><a href="#contact">Contact</a></li>
+
+            <div
+                className={`lg:hidden flex flex-col items-start px-4 transition-all duration-500 ease-in-out overflow-hidden ${isMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10 pointer-events-none"
+                    }`}
+            >
+                <ul onClick={() => setIsMenuOpen(false)} className="menu flex flex-col gap-2 mt-2 w-full">
+                    <li className={`rounded-xl ${linkBg}`}><a href="/">Home</a></li>
+                    <li className={`rounded-xl ${linkBg}`}><a href="#about">About</a></li>
+                    <li className={`rounded-xl ${linkBg}`}><a href="#skills">Skills</a></li>
+                    <li className={`rounded-xl ${linkBg}`}><a href="#projects">Projects</a></li>
+                    <li className={`rounded-xl ${linkBg}`}><a href="#contact">Contact</a></li>
                 </ul>
             </div>
-            <div className="navbar-end motion-scale-in-[0.46] motion-translate-x-in-[-1%] motion-translate-y-in-[-154%] ">
-                <span onClick={() => setIsDarkMode(!isDarkMode)} className={`mr-2 ${isDarkMode ? "bg-gray-800 hover:bg-gray-700" : "bg-black"} hover:cursor-pointer text-white p-2 rounded-xl`} >
-                    {
-                        isDarkMode ?
-                            <LuSun size={24} /> :
-                            <FaRegMoon size={24} />
-                    }
-                </span>
-            </div>
         </div>
-    )
-}
+    );
+};
 
-export default NavBar
+export default NavBar;

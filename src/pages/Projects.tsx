@@ -3,10 +3,10 @@ import tunestream_image from "../assets/projects/images/tunestream.png";
 import tunestream_video from "../assets/projects/videos/tunestream.webm";
 import streamify_image from "../assets/projects/images/streamify.png";
 import streamify_video from "../assets/projects/videos/streamify.webm";
-import userhub_image from "../assets/projects/images/userhub.png";
-import userhub_video from "../assets/projects/videos/userhub.webm";
-import echoo_image from "../assets/projects/images/echo.png";
-import echoo_video from "../assets/projects/videos/echoo.webm";
+// import userhub_image from "../assets/projects/images/userhub.png";
+// import userhub_video from "../assets/projects/videos/userhub.webm";
+// import echoo_image from "../assets/projects/images/echo.png";
+// import echoo_video from "../assets/projects/videos/echoo.webm";
 import neoprompt_image from "../assets/projects/images/neoprompt.png";
 import neoprompt_video from "../assets/projects/videos/neoprompt.webm";
 import { useContext } from 'react';
@@ -15,7 +15,7 @@ import bloggerHeaven_image from "../assets/projects/images/blogger_heaven.png"
 import bloggerHeaven_video from "../assets/projects/videos/bloggerHeaven.webm"
 import queryDocs_image from "../assets/projects/images/QueryDocs.png"
 import queryDocs_video from "../assets/projects/videos/queryDocs.webm"
-import aiTubeSummerizer_image from "../assets/projects/images/aiTubeSummerizer.jpeg"
+// import aiTubeSummerizer_image from "../assets/projects/images/aiTubeSummerizer.jpeg"
 import aiTubeSummerizer_video from "../assets/projects/videos/aiTubeSummerizer.webm"
 import chatSphere_image from "../assets/projects/images/chatSphere.png"
 import chatSphere_video from "../assets/projects/videos/chatSphere.webm"
@@ -47,7 +47,7 @@ const Projects = () => {
             tech_stack: ["Node JS", "React JS", "Langchain", "Stripe", "Google Gen AI Model",],
             image: nexora_image,
             video: aiTubeSummerizer_video,
-            github_link: "https://github.com/MuhammadOsman381/AI-TubeSummarizer",
+            github_link: "https://github.com/MuhammadOsman381/Nexora",
             showVideo: true
         },
         {
@@ -59,15 +59,15 @@ const Projects = () => {
             github_link: "https://github.com/MuhammadOsman381/Blog-App",
             showVideo: true
         },
-        {
-            title: "AI TubeSummarizer",
-            description: "AI TubeSummarizer is an intelligent video summarization tool that simplifies content consumption. Users can input a YouTube URL, and the app retrieves the transcript using the YouTube API. The transcript is then processed by the Google Gemini model, which generates a concise and insightful summary of the video. This makes it easier for users to quickly grasp key points without watching the entire video.",
-            tech_stack: ["Flask", "React JS", "Google Gemini API", "Youtube API", "TypeScript"],
-            image: aiTubeSummerizer_image,
-            video: aiTubeSummerizer_video,
-            github_link: "https://github.com/MuhammadOsman381/AI-TubeSummarizer",
-            showVideo: true
-        },
+        // {
+        //     title: "AI TubeSummarizer",
+        //     description: "AI TubeSummarizer is an intelligent video summarization tool that simplifies content consumption. Users can input a YouTube URL, and the app retrieves the transcript using the YouTube API. The transcript is then processed by the Google Gemini model, which generates a concise and insightful summary of the video. This makes it easier for users to quickly grasp key points without watching the entire video.",
+        //     tech_stack: ["Flask", "React JS", "Google Gemini API", "Youtube API", "TypeScript"],
+        //     image: aiTubeSummerizer_image,
+        //     video: aiTubeSummerizer_video,
+        //     github_link: "https://github.com/MuhammadOsman381/AI-TubeSummarizer",
+        //     showVideo: true
+        // },
         {
             title: "QueryDocs",
             description: "QueryDocs is an AI-powered document assistant that leverages Google Gemini models to enhance PDF interactions. Users can upload PDFs, and the AI processes the content, allowing them to ask any questions about the document. With intelligent search and instant responses, QueryDocs makes reading and extracting information from PDFs seamless and efficient.",
@@ -113,29 +113,29 @@ const Projects = () => {
             github_link: "https://github.com/MuhammadOsman381/next-js_streamify",
             showVideo: true
         },
-        {
-            title: "UserHub",
-            description: "UserHub is a simple user management app where users can create, view, and manage profiles. Users can upload profile pictures, edit their details, and delete accounts easily.",
-            tech_stack: ["React JS", "MongoDB", "Spring Boot", "TypeScript"],
-            image: userhub_image,
-            video: userhub_video,
-            github_link: "https://github.com/MuhammadOsman381/UserHub_SpringBoot",
-            showVideo: true
-        },
-        {
-            title: "Echoo",
-            description: "Echoo is a real-time global chat app where users can create an account, log in, and chat with anyone worldwide. It supports secure messaging and profile management.",
-            tech_stack: ["Next JS", "MongoDB", "Mongoose ORM", "Socket IO"],
-            image: echoo_image,
-            video: echoo_video,
-            github_link: "https://github.com/MuhammadOsman381/next-js_chat-app",
-            showVideo: true
-        }
+        // {
+        //     title: "UserHub",
+        //     description: "UserHub is a simple user management app where users can create, view, and manage profiles. Users can upload profile pictures, edit their details, and delete accounts easily.",
+        //     tech_stack: ["React JS", "MongoDB", "Spring Boot", "TypeScript"],
+        //     image: userhub_image,
+        //     video: userhub_video,
+        //     github_link: "https://github.com/MuhammadOsman381/UserHub_SpringBoot",
+        //     showVideo: true
+        // },
+        // {
+        //     title: "Echoo",
+        //     description: "Echoo is a real-time global chat app where users can create an account, log in, and chat with anyone worldwide. It supports secure messaging and profile management.",
+        //     tech_stack: ["Next JS", "MongoDB", "Mongoose ORM", "Socket IO"],
+        //     image: echoo_image,
+        //     video: echoo_video,
+        //     github_link: "https://github.com/MuhammadOsman381/next-js_chat-app",
+        //     showVideo: true
+        // }
     ];
 
     return (
-        <div id='projects' className={`${isDarkMode && "bg-gray-800 text-white"} flex flex-col  items-center justify-center gap-6  md:p-10 p-4 bg-gray-100 h-auto`} >
-            <button className={`${isDarkMode ? "bg-gray-600  text-gray-300 hover:bg-gray-700" : "bg-black text-white   "} text-sm  py-2 px-6 rounded-full `}>
+        <div id='projects' className={`${isDarkMode && "bg-zinc-800 text-white"} flex flex-col  items-center justify-center gap-6  md:p-10 p-4 bg-gray-100 h-auto`} >
+            <button className={`${isDarkMode ? "bg-zinc-600  text-zinc-300 hover:bg-zinc-700" : "bg-black text-white   "} text-sm  py-2 px-6 rounded-full `}>
                 Projects
             </button>
             {/* <h2 className="text-2xl font-bold  w-full text-center">Some of the noteworthy projects I have built:</h2> */}
