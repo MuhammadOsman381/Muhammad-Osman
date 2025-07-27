@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import About from "./About";
 import Home from "./Home";
 import Skills from "./Skills";
