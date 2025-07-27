@@ -17,10 +17,10 @@ const About = () => {
     return (
         <section
             id="about"
-            className={`${isDarkMode ? "bg-zinc-800 text-white" : "bg-zinc-100 text-black"
+            className={`${isDarkMode ? "bg-zinc-900 text-white" : "bg-zinc-100 text-black"
                 }   lg:h-auto border-none flex flex-col items-center justify-center py-12 px-6 md:px-12`}
         >
-            <button className={`${isDarkMode ? "bg-zinc-600  text-white hover:bg-zinc-700" : "bg-black text-white   "} text-sm mb-6 py-2 px-6 rounded-full `}>
+            <button className={`${isDarkMode ? "bg-zinc-700  text-white hover:bg-zinc-700" : "bg-black text-white   "} text-sm mb-6 py-2 px-6 rounded-full `}>
                 About
             </button>
             <div className=" flex flex-col md:flex-row  items-center justify-center max-w-6xl gap-12">

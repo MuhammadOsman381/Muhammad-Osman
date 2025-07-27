@@ -157,7 +157,7 @@ const WatchProject = () => {
 
 
     return (
-        <div className={`lg:h-screen  ${isDarkMode ? " bg-zinc-800 text-white" : "bg-zinc-100"} lg:p-10 p-5  flex items-center justify-center`} >
+        <div className={`lg:h-screen  ${isDarkMode ? " bg-zinc-900 text-white" : "bg-zinc-100"} lg:p-10 p-5  flex items-center justify-center`} >
             <ProjectCard data={project} index={0} isDarkMode={isDarkMode} />
         </div>
     )

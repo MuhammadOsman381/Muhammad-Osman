@@ -24,13 +24,13 @@ const Contact = () => {
     return (
         <div
             id="contact"
-            className={`${isDarkMode ? "bg-zinc-900 text-white" : "bg-white text-zinc-900"} lg:p-0 p-5 h-auto`}
+            className={` ${isDarkMode ? "bg-zinc-950 text-white" : "bg-white text-zinc-900"} lg:p-0 p-5 h-auto`}
         >
 
-            <footer className={`${isDarkMode ? "bg-zinc-900 text-white" : "bg-white text-zinc-900"} py-10`}>
+            <footer className={`${isDarkMode ? "bg-zinc-950 text-white" : "bg-white text-zinc-900"} py-10`}>
                 <div className="container mx-auto text-center space-y-6">
                     <button
-                        className={`${isDarkMode ? "bg-zinc-600 text-zinc-300 hover:bg-zinc-700" : "bg-black text-white"} text-sm  py-2 px-6 rounded-full`}
+                        className={`${isDarkMode ? "bg-zinc-700 text-zinc-300 hover:bg-zinc-700" : "bg-black text-white"} text-sm  py-2 px-6 rounded-full`}
                     >
                         Get in touch
                     </button>

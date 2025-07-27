@@ -5,6 +5,9 @@ import "../App.css";
 import { useContext } from "react";
 import { MyContext } from "../Context";
 import { motion } from "motion/react";
+import { Typewriter } from "react-simple-typewriter";
+// If you have a Typewriter component, import it here. Otherwise, install a package or define your own.
+// import Typewriter from "../components/Typewriter";
 
 
 interface MyContextType {
@@ -20,14 +23,26 @@ const Home = () => {
     return (
         <section
             id="home"
-            className={`${isDarkMode ? "bg-zinc-900 text-white" : "bg-white text-black"
+            className={`${isDarkMode ? "bg-zinc-950 text-white" : "bg-white text-black"
                 }  lg:h-[80vh] h-[90vh]  flex items-center justify-center  p-6 `}
         >
             <div className=" max-w-screen-full px-3 lg:px-28    mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-10">
 
                 <div className="text-center md:text-left">
-                    <h1 className="text-2xl  md:text-5xl font-bold">
-                        Hi, I’m Osman <span className="wave">👋</span>
+                    <h1 className="text-2xl space-x-2 md:text-5xl font-bold">
+                        <span>
+                            Hi, I’m
+                        </span>
+                        <Typewriter
+                            words={['Muhammad Osman']}
+                            loop={false}
+                            cursor
+                            cursorStyle={<span className="text-red-900">|</span>}
+                            typeSpeed={200}
+                            deleteSpeed={100}
+                            delaySpeed={2000}
+                        />
+
                     </h1>
                     <p
                         className={`mt-2 ${isDarkMode ? "text-gray-300" : "text-gray-600"
@@ -64,7 +79,7 @@ const Home = () => {
                         </motion.a>
                         <motion.a
                             animate={{ x: [0, -5, 5, -5, -5, 0] }}
-                            transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
+                            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                             href="https://www.linkedin.com/in/muhammad-osman-920a81307/"
                             target="_blank"
                             rel="noopener noreferrer"

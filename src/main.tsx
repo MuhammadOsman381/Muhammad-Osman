@@ -9,6 +9,7 @@ import { MyContextProvider } from './Context.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
+    
     <MyContextProvider>
       <ToastContainer />
       <App />

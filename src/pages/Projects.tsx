@@ -134,8 +134,8 @@ const Projects = () => {
     ];
 
     return (
-        <div id='projects' className={`${isDarkMode && "bg-zinc-800 text-white"} flex flex-col  items-center justify-center gap-6  md:p-10 p-4 bg-gray-100 h-auto`} >
-            <button className={`${isDarkMode ? "bg-zinc-600  text-zinc-300 hover:bg-zinc-700" : "bg-black text-white   "} text-sm  py-2 px-6 rounded-full `}>
+        <div id='projects' className={`${isDarkMode && "bg-zinc-900 text-white"} flex flex-col  items-center justify-center gap-6  md:p-10 p-4 bg-gray-100 h-auto`} >
+            <button className={`${isDarkMode ? "bg-zinc-700  text-zinc-300 hover:bg-zinc-700" : "bg-black text-white   "} text-sm  py-2 px-6 rounded-full `}>
                 Projects
             </button>
             {/* <h2 className="text-2xl font-bold  w-full text-center">Some of the noteworthy projects I have built:</h2> */}

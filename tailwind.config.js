@@ -5,9 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+     
+    },
   },
-  plugins: [require('daisyui'),require('tailwindcss-motion')],
+  plugins: [require('daisyui'), require('tailwindcss-motion')],
   daisyui: {
     themes: [
       "light",
@@ -42,6 +44,7 @@ export default {
       "dim",
       "nord",
       "sunset",
+
     ],
   },
 }
