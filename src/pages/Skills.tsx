@@ -51,7 +51,7 @@ const Skills = () => {
             <button className={`${isDarkMode ? "bg-zinc-700  text-zinc-300 hover:bg-zinc-700" : "bg-black text-white   "} text-sm  py-2 px-6 rounded-full `}>
                 Skills
             </button>
-            <div className="w-full grid grid-cols-1 md:grid-cols-4 lg:grid-cols-8 gap-3 mt-6">
+            <div className="w-full grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-3 mt-6">
                 {skills.map((skill, index) => (
                     <div
                         key={index}
@@ -61,15 +61,15 @@ const Skills = () => {
                             index === 3 || index === 5 || index === 11 ?
                                 <>
                                     <span className={`  bg-white rounded-full  `} >
-                                        <img src={skill.image} alt={skill.title} className="w-10 h-10   object-contain rounded-lg" />
+                                        <img src={skill.image} alt={skill.title} className="w-8 h-8   object-contain rounded-lg" />
                                     </span>
-                                    <p className={`text-md ${isDarkMode ? "text-zinc-300" : "text-black"} font-medium`}>{skill.title}</p>
+                                    <p className={`text-sm ${isDarkMode ? "text-zinc-300" : "text-black"} font-medium`}>{skill.title}</p>
                                 </>
                                 :
 
                                 <>
-                                    <img src={skill.image} alt={skill.title} className="w-10 h-10  object-contain rounded-lg" />
-                                    <p className={`text-md ${isDarkMode ? "text-zinc-300" : "text-black"} font-medium`}>{skill.title}</p>
+                                    <img src={skill.image} alt={skill.title} className="w-8 h-8 object-contain rounded-lg" />
+                                    <p className={`text-sm ${isDarkMode ? "text-zinc-300" : "text-black"} font-medium`}>{skill.title}</p>
                                 </>
                         }
 

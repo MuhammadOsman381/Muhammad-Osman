@@ -19,15 +19,17 @@ interface ProjectData {
     isDarkMode: boolean;
 }
 
+// ${index % 2 === 0 ? "lg:flex-row-reverse   " : "lg:flex-row"
+//                 }
+
 const ProjectCard = ({ data, index, isDarkMode }: ProjectData) => {
     return (
         <div
             key={data.title}
-            className={`   ${isDarkMode ? "bg-zinc-800  " : "bg-zinc-200 "
-                } rounded-2xl flex flex-col ${index % 2 === 0 ? "lg:flex-row-reverse   " : "lg:flex-row"
-                } overflow-hidden     `}
+            className={`   ${isDarkMode ? "bg-zinc-900  " : "bg-zinc-200 "
+                } rounded-2xl  flex flex-col  overflow-hidden     `}
         >
-            <div className={`w-full lg:w-[40%] bg-transparent flex justify-center items-center p-4 lg:p-6`}>
+            <div className={`w-full lg:w-full bg-transparent flex justify-center items-center  `}>
                 {!data.showVideo ? (
                     <video
                         src={data.video}
@@ -48,8 +50,8 @@ const ProjectCard = ({ data, index, isDarkMode }: ProjectData) => {
 
 
             <div
-                className={`w-full lg:w-[60%]  flex flex-col justify-center ${isDarkMode ? "bg-zinc-950" : "bg-white"
-                    } px-6 py-6 sm:px-8 sm:py-8`}
+                className={`w-full lg:w-full   flex flex-col justify-center ${isDarkMode ? "bg-zinc-950" : "bg-white"
+                    }  px-4 py-4 sm:px-8 sm:py-8`}
             >
                 <h3
                     className={`text-xl sm:text-2xl font-bold mb-4 ${isDarkMode ? "text-white" : "text-zinc-700"
@@ -58,7 +60,7 @@ const ProjectCard = ({ data, index, isDarkMode }: ProjectData) => {
                     {data.title}
                 </h3>
                 <p
-                    className={`text-sm    sm:text-base ${isDarkMode ? "text-zinc-400" : "text-zinc-600"
+                    className={`text-xs   sm:text-sm ${isDarkMode ? "text-zinc-400" : "text-zinc-600"
                         } mb-6 leading-relaxed`}
                 >
                     {data.description}

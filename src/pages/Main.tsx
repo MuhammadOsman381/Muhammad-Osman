@@ -7,13 +7,14 @@ import Contact from "./Contact";
 const Main = () => {
 
     return (
-        <div className="w-full relative">
-            
-            <Home />
-            <About />
-            <Skills />
-            <Projects />
-            <Contact />
+        <div className="flex w-full items-center justify-center bg-zinc-950" >
+            <div className="lg:w-[75vw]  ">
+                <Home />
+                <About />
+                <Skills />
+                <Projects />
+                <Contact />
+            </div>
         </div>
     );
 };

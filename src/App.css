@@ -32,3 +32,6 @@ html {
   scrollbar-color: transparent transparent; /* Transparent thumb and track */
 }
 
+.root{
+  font-family: 'IBM Plex Mono', 'Fira Code', 'JetBrains Mono', monospace;
+}
