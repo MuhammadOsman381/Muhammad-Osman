@@ -19,7 +19,7 @@ interface ProjectData {
     isDarkMode: boolean;
 }
 
-// ${index % 2 === 0 ? "lg:flex-row-reverse   " : "lg:flex-row"
+// 
 //                 }
 
 const ProjectCard = ({ data, index, isDarkMode }: ProjectData) => {
@@ -27,7 +27,7 @@ const ProjectCard = ({ data, index, isDarkMode }: ProjectData) => {
         <div
             key={data.title}
             className={`   ${isDarkMode ? "bg-zinc-900  " : "bg-zinc-200 "
-                } rounded-2xl  flex flex-col  overflow-hidden     `}
+                } rounded-2xl ${index % 2 === 0 ? "lg:flex-row-reverse   " : "lg:flex-row"} flex flex-col  overflow-hidden     `}
         >
             <div className={`w-full lg:w-full bg-transparent flex justify-center items-center  `}>
                 {!data.showVideo ? (

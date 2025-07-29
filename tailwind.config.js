@@ -6,7 +6,9 @@ export default {
   ],
   theme: {
     extend: {
-     
+       rotate: {
+         50: '50deg',
+      },
     },
   },
   plugins: [require('daisyui'), require('tailwindcss-motion')],
@@ -44,7 +46,6 @@ export default {
       "dim",
       "nord",
       "sunset",
-
     ],
   },
 }

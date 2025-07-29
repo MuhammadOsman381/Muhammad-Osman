@@ -56,7 +56,7 @@ const WatchProject = () => {
     const [project, setProject] = useState<ProjectData>(defaultProjectData)
 
     const projectsData: ProjectData[] = [
-          {
+        {
             title: "Nexora",
             description: "Developed a full-stack SaaS application that allows users to create accounts, create chat sessions by entering a website URL or title, and scrape website content using Puppeteer. The scraped data is then processed using LangChain and Google GenAI to generate a custom AI model for each chat. Users can ask questions based on the website's content, with complete chat history tracking. The app also includes a subscription system, enabling users to unlock more chats and premium features.",
             tech_stack: ["Node JS", "React JS", "Langchain", "Stripe", "Google Gen AI Model",],
@@ -157,8 +157,10 @@ const WatchProject = () => {
 
 
     return (
-        <div className={`lg:h-screen  ${isDarkMode ? " bg-zinc-900 text-white" : "bg-zinc-100"} lg:p-10 p-5  flex items-center justify-center`} >
-            <ProjectCard data={project} index={0} isDarkMode={isDarkMode} />
+        <div className={`  ${isDarkMode ? " bg-zinc-950 text-white" : "bg-zinc-950"} lg:p-10 p-5  flex items-center justify-center`} >
+            <div className="lg:w-[75vw] " >
+                <ProjectCard data={project} index={0} isDarkMode={isDarkMode} />
+            </div>
         </div>
     )
 }

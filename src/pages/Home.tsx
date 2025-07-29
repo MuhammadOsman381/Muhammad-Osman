@@ -6,6 +6,8 @@ import { useContext } from "react";
 import { MyContext } from "../Context";
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
+import ShootingStar from "../components/ShootingStars";
+import ShootingStars from "../components/ShootingStars";
 
 interface MyContextType {
     isDarkMode: boolean;
@@ -22,6 +24,13 @@ const Home = () => {
             className={`${isDarkMode ? "bg-zinc-950 text-white" : "bg-white text-black"
                 } flex   items-center justify-center h-[80vh] px-5  lg:h-[70vh]`}
         >
+
+            {/* <section className=" h-[70vh] overflow-hidden"> */}
+                <ShootingStars />
+            {/* </section> */}
+
+
+
             <div className="max-w-screen-full   mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-10">
                 {/* Text Section */}
                 <div className="text-center md:text-left">
@@ -45,15 +54,15 @@ const Home = () => {
                         className={`mt-2 text-xs sm:text-sm ${isDarkMode ? "text-gray-300" : "text-gray-600"
                             }`}
                     >
-                        A passionate 
+                        A passionate
                         {" "}
-                         <span
+                        <span
                             className={`font-bold ${isDarkMode ? "text-white" : "text-black"
                                 }`}
                         >
-                         Full Stack Developer 
+                            Full Stack Developer
                         </span>{" "}
-                         with over a year of experience, specializing in building scalable web applications using{" "}
+                        with over a year of experience, specializing in building scalable web applications using{" "}
                         <span
                             className={`font-bold ${isDarkMode ? "text-white" : "text-black"
                                 }`}
@@ -69,10 +78,6 @@ const Home = () => {
                         </span>
                         .
                     </p>
-
-
-
-
 
 
                     {/* Location & Status */}
