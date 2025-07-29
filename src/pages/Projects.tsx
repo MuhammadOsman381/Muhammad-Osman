@@ -13,8 +13,8 @@ import { useContext } from 'react';
 import { MyContext } from '../Context';
 import bloggerHeaven_image from "../assets/projects/images/blogger_heaven.png"
 import bloggerHeaven_video from "../assets/projects/videos/bloggerHeaven.webm"
-import queryDocs_image from "../assets/projects/images/QueryDocs.png"
-import queryDocs_video from "../assets/projects/videos/queryDocs.webm"
+import connectly_image from "../assets/projects/images/connectly.png"
+import connectly_video from "../assets/projects/videos/connectly.webm"
 // import aiTubeSummerizer_image from "../assets/projects/images/aiTubeSummerizer.jpeg"
 import aiTubeSummerizer_video from "../assets/projects/videos/aiTubeSummerizer.webm"
 import chatSphere_image from "../assets/projects/images/chatSphere.png"
@@ -42,8 +42,17 @@ const Projects = () => {
 
     const projectsData: ProjectData[] = [
         {
+            title: "Connectly",
+            description: "Connectly is a one-to-one communication platform enabling real-time text messaging and high-quality video calls. Messages are powered by Socket.IO for instant delivery, while WebRTC ensures secure, peer-to-peer video communication — all packed into a clean interface.",
+            tech_stack: ["Node JS", "React JS", "WebRtc", "Socket IO",],
+            image: connectly_image,
+            video: connectly_video,
+            github_link: "https://github.com/MuhammadOsman381/Nexora",
+            showVideo: true
+        },
+        {
             title: "Nexora",
-            description: "Developed a full-stack SaaS application that allows users to create accounts, create chat sessions by entering a website URL or title, and scrape website content using Puppeteer. The scraped data is then processed using LangChain and Google GenAI to generate a custom AI model for each chat. Users can ask questions based on the website's content, with complete chat history tracking. The app also includes a subscription system, enabling users to unlock more chats and premium features.",
+            description: "A full-stack SaaS application that allows users to create chat sessions by entering a website URL or title, and scrape website content using Puppeteer. The scraped data is then processed using LangChain and Google GenAI to generate a custom AI model for each chat. Users can ask questions based on the website's content. The app also includes a subscription system, enabling users to unlock more chats and premium features.",
             tech_stack: ["Node JS", "React JS", "Langchain", "Stripe", "Google Gen AI Model",],
             image: nexora_image,
             video: aiTubeSummerizer_video,
@@ -57,24 +66,6 @@ const Projects = () => {
             image: bloggerHeaven_image,
             video: bloggerHeaven_video,
             github_link: "https://github.com/MuhammadOsman381/Blog-App",
-            showVideo: true
-        },
-        // {
-        //     title: "AI TubeSummarizer",
-        //     description: "AI TubeSummarizer is an intelligent video summarization tool that simplifies content consumption. Users can input a YouTube URL, and the app retrieves the transcript using the YouTube API. The transcript is then processed by the Google Gemini model, which generates a concise and insightful summary of the video. This makes it easier for users to quickly grasp key points without watching the entire video.",
-        //     tech_stack: ["Flask", "React JS", "Google Gemini API", "Youtube API", "TypeScript"],
-        //     image: aiTubeSummerizer_image,
-        //     video: aiTubeSummerizer_video,
-        //     github_link: "https://github.com/MuhammadOsman381/AI-TubeSummarizer",
-        //     showVideo: true
-        // },
-        {
-            title: "QueryDocs",
-            description: "QueryDocs is an AI-powered document assistant that leverages Google Gemini models to enhance PDF interactions. Users can upload PDFs, and the AI processes the content, allowing them to ask any questions about the document. With intelligent search and instant responses, QueryDocs makes reading and extracting information from PDFs seamless and efficient.",
-            tech_stack: ["Node JS", "React JS", "Google Gemini API", "TypeScript"],
-            image: queryDocs_image,
-            video: queryDocs_video,
-            github_link: "https://github.com/MuhammadOsman381/QueryDocs",
             showVideo: true
         },
         {
@@ -113,24 +104,7 @@ const Projects = () => {
             github_link: "https://github.com/MuhammadOsman381/next-js_streamify",
             showVideo: true
         },
-        // {
-        //     title: "UserHub",
-        //     description: "UserHub is a simple user management app where users can create, view, and manage profiles. Users can upload profile pictures, edit their details, and delete accounts easily.",
-        //     tech_stack: ["React JS", "MongoDB", "Spring Boot", "TypeScript"],
-        //     image: userhub_image,
-        //     video: userhub_video,
-        //     github_link: "https://github.com/MuhammadOsman381/UserHub_SpringBoot",
-        //     showVideo: true
-        // },
-        // {
-        //     title: "Echoo",
-        //     description: "Echoo is a real-time global chat app where users can create an account, log in, and chat with anyone worldwide. It supports secure messaging and profile management.",
-        //     tech_stack: ["Next JS", "MongoDB", "Mongoose ORM", "Socket IO"],
-        //     image: echoo_image,
-        //     video: echoo_video,
-        //     github_link: "https://github.com/MuhammadOsman381/next-js_chat-app",
-        //     showVideo: true
-        // }
+
     ];
 
     return (

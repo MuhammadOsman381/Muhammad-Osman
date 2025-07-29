@@ -9,7 +9,7 @@ const Star = ({ delay, top, left, duration }: any) => {
     useEffect(() => {
         const timeout = setTimeout(() => {
             setVisible(true);
-        }, delay * 1000);
+        }, delay * 2000);
 
         return () => clearTimeout(timeout);
     }, [delay]);
@@ -30,8 +30,8 @@ const Star = ({ delay, top, left, duration }: any) => {
 
 const ShootingStars = () => {
     const stars = Array.from({ length: 10 }).map((_, i) => {
-        const top = getRandom(5, 100);
-        const left = getRandom(-20, 0);
+        const top = getRandom(0, 20);       
+        const left = getRandom(0, 20);      
         const delay = getRandom(0, 10);
         const duration = getRandom(2, 4);
 

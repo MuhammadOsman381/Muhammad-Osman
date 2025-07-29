@@ -50,12 +50,12 @@ const Skills = () => {
         <div id="skills" className={`${isDarkMode ? "bg-zinc-950 text-white" : "bg-white text-zinc-900"} h-auto flex flex-col items-center justify-center   md:p-10 p-7`}>
             <button className={`${isDarkMode ? "bg-zinc-700  text-zinc-300 hover:bg-zinc-700" : "bg-black text-white   "} text-sm  py-2 px-6 rounded-full `}>
                 Technologies
-            </button>
+            </button> 
             <div className="w-full grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-3 mt-6">
                 {skills.map((skill, index) => (
                     <div
                         key={index}
-                        className={`flex flex-row flex-wrap justify-start items-center gap-3  ${isDarkMode ? "bg-zinc-900   " : "  bg-zinc-200 "}   p-3 rounded-lg  transition-transform transform hover:scale-[101%]`}
+                        className={`flex flex-row flex-wrap justify-start items-center gap-3  ${isDarkMode ? "bg-zinc-900   " : "  bg-zinc-200 "}   p-3 rounded-lg  transition-transform transform hover:scale-[103%]`}
                     >
                         {
                             index === 3 || index === 5 || index === 11 ?

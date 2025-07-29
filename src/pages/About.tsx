@@ -20,7 +20,7 @@ const About = () => {
             className={`${isDarkMode ? "bg-zinc-950 text-white" : "bg-zinc-100 text-black"
                 }  rounded-xl lg:h-auto border-none flex flex-col items-center justify-center py-12 px-6 md:px-12 text-sm`}
         >
-            <button className={`${isDarkMode ? "bg-zinc-700  text-white hover:bg-zinc-700" : "bg-black text-white   "} text-sm mb-6 py-2 px-6 rounded-full `}>
+            <button className={`${isDarkMode ? "bg-zinc-700  text-zinc-300 hover:bg-zinc-700" : "bg-black text-white   "} text-sm mb-6 py-2 px-6 rounded-full `}>
                 About
             </button>
             <div className=" flex flex-col md:flex-row  items-center justify-center max-w-6xl gap-12">

@@ -25,7 +25,7 @@ const Home = () => {
                 } flex   items-center justify-center h-[80vh] px-5  lg:h-[70vh]`}
         >
 
-            {/* <section className=" h-[70vh] overflow-hidden"> */}
+            {/* <section className=" h-[0vh] border overflow-hidden"> */}
                 <ShootingStars />
             {/* </section> */}
 
