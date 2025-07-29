@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { MyContext } from "../Context";
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
-import ShootingStar from "../components/ShootingStars";
+// import ShootingStar from "../components/ShootingStars";
 import ShootingStars from "../components/ShootingStars";
 
 interface MyContextType {
