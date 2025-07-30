@@ -47,7 +47,7 @@ const Projects = () => {
             tech_stack: ["Node JS", "React JS", "WebRtc", "Socket IO",],
             image: connectly_image,
             video: connectly_video,
-            github_link: "https://github.com/MuhammadOsman381/Nexora",
+            github_link: "https://github.com/MuhammadOsman381/Web-Rtc-One-to-One",
             showVideo: true
         },
         {
