@@ -22,7 +22,7 @@ const Home = () => {
         <section
             id="home"
             className={`${isDarkMode ? "bg-zinc-950 text-white" : "bg-white text-black"
-                } flex   items-center justify-center h-[80vh] px-5  lg:h-[70vh]`}
+                } flex  lg:mt-16 mt-24 items-center justify-center h-[80vh] px-5  lg:h-[70vh]`}
         >
 
             {/* <section className=" h-[0vh] border overflow-hidden"> */}

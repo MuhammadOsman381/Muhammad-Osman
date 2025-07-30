@@ -61,14 +61,14 @@ const Skills = () => {
                             index === 3 || index === 5 || index === 11 ?
                                 <>
                                     <span className={`  bg-white rounded-full  `} >
-                                        <img src={skill.image} alt={skill.title} className="w-8 h-8   object-contain rounded-lg" />
+                                        <img src={skill.image} alt={skill.title} className="w-5 h-5   object-contain rounded-sm" />
                                     </span>
                                     <p className={`text-sm ${isDarkMode ? "text-zinc-300" : "text-black"} font-medium`}>{skill.title}</p>
                                 </>
                                 :
 
                                 <>
-                                    <img src={skill.image} alt={skill.title} className="w-8 h-8 object-contain rounded-lg" />
+                                    <img src={skill.image} alt={skill.title} className="w-5 h-5 object-contain rounded-sm" />
                                     <p className={`text-sm ${isDarkMode ? "text-zinc-300" : "text-black"} font-medium`}>{skill.title}</p>
                                 </>
                         }
