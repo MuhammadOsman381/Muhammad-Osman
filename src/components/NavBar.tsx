@@ -24,7 +24,7 @@ const NavBar = () => {
             className={`  w-full transition-all duration-300 ease-in-out ${navBg} ${isMenuOpen ? "h-[320px]" : "h-[64px]"
                 }`}
         >
-            <motion.div className="h-1 origin-left bg-white w-full" style={{ scaleX: scrollYProgress }} />
+            <motion.div className="fixed h-1 origin-left bg-white w-full" style={{ scaleX: scrollYProgress }} />
 
             <div className="navbar px-4">
                 <div className="navbar-start">

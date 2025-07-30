@@ -71,7 +71,7 @@ html {
   width: 25vw;
   max-width: 150px;
   height: 2px;
-  background: linear-gradient(to left, gray, transparent);
+  background: linear-gradient(to left, white, transparent);
   transform: rotate(50deg);
   animation-name: shooting-star;
   animation-timing-function: linear;
@@ -83,12 +83,12 @@ html {
 @media (max-width: 768px) {
   @keyframes shooting-star {
     0% {
-      transform: translateX(0) translateY(0) rotate(15deg);
+      transform: translateX(0) translateY(0) rotate(20deg);
       opacity: 1;
     }
 
     100% {
-      transform: translateX(100vw) translateY(35vh) rotate(15deg);
+      transform: translateX(100vw) translateY(35vh) rotate(20deg);
       opacity: 0;
     }
   }
