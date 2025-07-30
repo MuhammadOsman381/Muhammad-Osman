@@ -21,7 +21,7 @@ const NavBar = () => {
 
     return (
         <div
-            className={`  w-full transition-all duration-300 ease-in-out ${navBg} ${isMenuOpen ? "h-[320px]" : "h-[64px]"
+            className={`fixed  w-full transition-all duration-300 ease-in-out ${navBg} ${isMenuOpen ? "h-[320px]" : "h-[64px]"
                 }`}
         >
             <motion.div className="fixed h-1 origin-left bg-white w-full" style={{ scaleX: scrollYProgress }} />
