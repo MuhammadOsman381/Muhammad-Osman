@@ -9,7 +9,7 @@ import streamify_video from "../assets/projects/videos/streamify.webm";
 // import echoo_video from "../assets/projects/videos/echoo.webm";
 import neoprompt_image from "../assets/projects/images/neoprompt.png";
 import neoprompt_video from "../assets/projects/videos/neoprompt.webm";
-import { useContext } from 'react';
+import { useContext, useRef } from 'react';
 import { MyContext } from '../Context';
 import bloggerHeaven_image from "../assets/projects/images/blogger_heaven.png"
 import bloggerHeaven_video from "../assets/projects/videos/bloggerHeaven.webm"
@@ -20,6 +20,7 @@ import aiTubeSummerizer_video from "../assets/projects/videos/aiTubeSummerizer.w
 import chatSphere_image from "../assets/projects/images/chatSphere.png"
 import chatSphere_video from "../assets/projects/videos/chatSphere.webm"
 import nexora_image from "../assets/projects/images/nexora.png"
+import { motion, useInView } from "motion/react";
 
 interface ProjectData {
     title: string,
@@ -39,6 +40,8 @@ interface MyContextType {
 const Projects = () => {
     const context: MyContextType | any = useContext(MyContext);
     const { isDarkMode } = context;
+    const ref = useRef(null);
+    const isInView = useInView(ref);
 
     const projectsData: ProjectData[] = [
         {
@@ -61,7 +64,7 @@ const Projects = () => {
         },
         {
             title: "Blogger's Heaven",
-            description: "Blogger’s Heaven is an AI-powered blogging platform where users can create, edit, and delete accounts and blogs effortlessly. With AI-assisted content generation, users can write and manage blogs, explore others’ posts, and engage through likes, dislikes, and comments. The platform also supports tag creation for better content organization, making blogging more interactive and efficient.",
+            description: "Blogger's Heaven is an AI-powered blogging platform where users can create, edit, and delete accounts and blogs effortlessly. With AI-assisted content generation, users can write and manage blogs, explore others' posts, and engage through likes, dislikes, and comments. The platform also supports tag creation for better content organization, making blogging more interactive and efficient.",
             tech_stack: ["Node JS", "React JS", "MySQL", "Google Gemini API", "TypeScript"],
             image: bloggerHeaven_image,
             video: bloggerHeaven_video,
@@ -108,7 +111,14 @@ const Projects = () => {
     ];
 
     return (
-        <div id='projects' className={`${isDarkMode && "bg-zinc-950 text-white"} flex flex-col rounded-xl  items-center justify-center gap-6  md:p-10 p-4 bg-gray-100 h-auto`} >
+        <motion.div 
+            ref={ref}
+            id='projects' 
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 5 }}
+            className={`${isDarkMode && "bg-zinc-950 text-white"} flex flex-col rounded-xl  items-center justify-center gap-6  md:p-10 p-4 bg-gray-100 h-auto`} 
+        >
             <button className={`${isDarkMode ? "bg-zinc-700  text-zinc-300 hover:bg-zinc-700" : "bg-black text-white   "} text-sm  py-2 px-6 rounded-full `}>
                 Projects
             </button>
@@ -118,7 +128,7 @@ const Projects = () => {
                     <ProjectCard data={items} index={index + 1} isDarkMode={isDarkMode} />
                 ))
             }
-        </div>
+        </motion.div>
     )
 }
 
