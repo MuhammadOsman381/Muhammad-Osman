@@ -22,17 +22,11 @@ const Home = () => {
         <section
             id="home"
             className={`${isDarkMode ? "bg-zinc-950 text-white" : "bg-white text-black"
-                } flex  lg:mt-16 mt-24 items-center justify-center h-[80vh] px-5  lg:h-[70vh]`}
+                } flex   items-center justify-center h-[80vh] px-5  lg:h-[80vh]`}
         >
-
-            {/* <section className=" h-[0vh] border overflow-hidden"> */}
                 <ShootingStars />
-            {/* </section> */}
-
-
 
             <div className="max-w-screen-full   mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-10">
-                {/* Text Section */}
                 <div className="text-center md:text-left">
                     <h1 className="text-2xl md:text-4xl font-bold">
                         <span>Hi, I’m </span>
@@ -48,7 +42,6 @@ const Home = () => {
                             />
                         </span>
                     </h1>
-
 
                     <p
                         className={`mt-2 text-xs sm:text-sm ${isDarkMode ? "text-gray-300" : "text-gray-600"
@@ -80,7 +73,6 @@ const Home = () => {
                     </p>
 
 
-                    {/* Location & Status */}
                     <div
                         className={`mt-6 text-sm flex flex-col sm:flex-row items-center gap-4 ${isDarkMode ? "text-gray-400" : "text-gray-500"
                             }`}

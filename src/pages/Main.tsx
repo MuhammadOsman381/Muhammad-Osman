@@ -7,8 +7,8 @@ import Contact from "./Contact";
 const Main = () => {
 
     return (
-        <div className="flex w-full items-center justify-center bg-zinc-950" >
-            <div className="lg:w-[75vw]  ">
+        <div className="flex   w-full items-center justify-center bg-zinc-950" >
+            <div className="container  lg:mt-16 mt-24 ">
                 <Home />
                 <About />
                 <Skills />
