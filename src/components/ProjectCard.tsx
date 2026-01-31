@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { FaEye } from "react-icons/fa";
+import { FaExternalLinkAlt, FaEye } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
@@ -8,9 +8,10 @@ interface Data {
     description: string;
     tech_stack: string[];
     image: string;
-    video: string;
+    video?: string;
     github_link: string;
     showVideo: boolean;
+    live_link?: string;
 }
 
 interface ProjectData {
@@ -27,16 +28,13 @@ const ProjectCard = ({ data, index, isDarkMode }: ProjectData) => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             className={`${isDarkMode ? "bg-zinc-900  " : "bg-zinc-200 "
-                } rounded-2xl max-w-full  flex ${index % 2 == 0 ? "xl:flex-row-reverse" : "xl:flex-row"}     flex-col  `}
+                } rounded-2xl  max-w-full  flex ${index % 2 == 0 ? "xl:flex-row-reverse" : "xl:flex-row"}     flex-col  `}
         >
-
-
-
 
             <div className={`w-full lg:w-full bg-zinc-950  flex justify-center items-center  `}>
                 {!data.showVideo ? (
                     <video
-                        src={data.video}
+                        src={data?.video}
                         className="w-full h-auto  object-cover rounded-xl "
                         controls
                         autoPlay
@@ -45,7 +43,7 @@ const ProjectCard = ({ data, index, isDarkMode }: ProjectData) => {
                     <img
                         src={data.image}
                         alt="Project Screenshot"
-                        className="w-full h-auto  object-cover rounded-xl "
+                        className="w-full h-auto  object-cover rounded-2xl border-t-2 border-zinc-600 "
                     />
                 )}
             </div>
@@ -81,16 +79,18 @@ const ProjectCard = ({ data, index, isDarkMode }: ProjectData) => {
                 </div>
                 <div className="flex flex-wrap gap-4">
                     {data.showVideo && data.title !== "Nexora" && (
-                        <motion.button>
-                            <Link
-                                to={`/watch/${index}`}
-                                className="relative group border border-indigo-500 text-indigo-400 hover:text-white px-3 py-1.5  rounded-lg flex flex-row items-center justify-center gap-2 text-xs sm:text-sm font-medium transition-all duration-200 shadow-[0_0_10px_rgba(99,102,241,0.5)] hover:shadow-[0_0_20px_rgba(99,102,241,0.8)]"
-                            >
-                                <span className="z-10">Watch</span>
-                                <FaEye size={15} className="z-10" />
-                                <span className="absolute inset-0 bg-indigo-500 opacity-0 group-hover:opacity-0 rounded-xl transition duration-300 blur-sm"></span>
-                            </Link>
-                        </motion.button>
+                        data.video && (
+                            <motion.button>
+                                <Link
+                                    to={`/watch/${index}`}
+                                    className="relative group border border-indigo-500 text-indigo-400 hover:text-white px-3 py-1.5  rounded-lg flex flex-row items-center justify-center gap-2 text-xs sm:text-sm font-medium transition-all duration-200 shadow-[0_0_10px_rgba(99,102,241,0.5)] hover:shadow-[0_0_20px_rgba(99,102,241,0.8)]"
+                                >
+                                    <span className="z-10">Watch</span>
+                                    <FaEye size={15} className="z-10" />
+                                    <span className="absolute inset-0 bg-indigo-500 opacity-0 group-hover:opacity-0 rounded-xl transition duration-300 blur-sm"></span>
+                                </Link>
+                            </motion.button>
+                        )
                     )}
                     <a
                         href={data.github_link}
@@ -102,6 +102,18 @@ const ProjectCard = ({ data, index, isDarkMode }: ProjectData) => {
                         <FaGithub size={15} className="z-10" />
                         <span className="absolute inset-0 bg-emerald-500 opacity-0 group-hover:opacity-20 rounded-xl transition duration-300 blur-sm"></span>
                     </a>
+                    {data.live_link && (
+                        <a
+                            href={data.live_link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="relative group border border-amber-500 text-amber-400 hover:text-white px-3 py-1.5 rounded-lg flex items-center justify-center gap-2 text-xs sm:text-sm font-medium transition-all duration-200 shadow-[0_0_10px_rgba(245,158,11,0.5)] hover:shadow-[0_0_20px_rgba(245,158,11,0.8)]"
+                        >
+                            <span className="z-10">Live</span>
+                            <FaExternalLinkAlt size={15} className="z-10" />
+                            <span className="absolute inset-0 bg-amber-500 opacity-0 group-hover:opacity-20 rounded-xl transition duration-300 blur-sm"></span>
+                        </a>
+                    )}
                 </div>
             </div>
         </motion.div>

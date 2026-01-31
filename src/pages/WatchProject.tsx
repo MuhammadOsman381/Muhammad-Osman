@@ -15,12 +15,13 @@ import { MyContext } from "../Context";
 import bloggerHeaven_image from "../assets/projects/images/blogger_heaven.png"
 import bloggerHeaven_video from "../assets/projects/videos/bloggerHeaven.webm"
 import connectly_image from "../assets/projects/images/connectly.png"
-import connectly_video from "../assets/projects/videos/connectly.webm"
+// import connectly_video from "../assets/projects/videos/connectly.webm"
 // import aiTubeSummerizer_image from "../assets/projects/images/aiTubeSummerizer.jpeg"
 import aiTubeSummerizer_video from "../assets/projects/videos/aiTubeSummerizer.webm"
 import chatSphere_image from "../assets/projects/images/chatSphere.png"
 import chatSphere_video from "../assets/projects/videos/chatSphere.webm"
 import nexora_image from "../assets/projects/images/nexora.png"
+import resume_enhancer_image from "../assets/projects/images/resume_enhancer.png"
 
 
 interface ProjectData {
@@ -28,9 +29,10 @@ interface ProjectData {
     description: string,
     tech_stack: string[],
     image: string,
-    video: string,
+    video?: string,
     github_link: string,
-    showVideo: false
+    showVideo: boolean,
+    live_link?: string
 }
 
 interface MyContextType {
@@ -57,11 +59,20 @@ const WatchProject = () => {
 
     const projectsData: ProjectData[] = [
         {
+            title: "Job-Specific AI Resume Optimizer",
+            description: "Job-Specific AI Resume Optimizer is a web application that helps candidates apply smarter using AI. Users can create jobs directly in the system or capture job details via a LinkedIn browser extension. With a single click on Apply, the AI optimizes the user’s CV for the specific role, making it ATS-friendly, generates a professional job-specific email, creates a polished PDF of the optimized CV, and sends it directly to the recruiter. The platform transforms standard CVs into role-specific resumes, helping candidates improve visibility and increase interview chances with minimal effort.",
+            tech_stack: ["Next JS", "Langchain", "Groq AI","Neon DB", "TypeScript", "QStash", "Puppeteer",],
+            image: resume_enhancer_image,
+            github_link: "https://github.com/MuhammadOsman381/AI-Resume-Updator.git",
+            showVideo: false,
+            live_link: "https://ai-resume-enhancer-mu.vercel.app"
+        },
+        {
             title: "Connectly",
             description: "Connectly is a one-to-one communication platform enabling real-time text messaging and high-quality video calls. Messages are powered by Socket.IO for instant delivery, while WebRTC ensures secure, peer-to-peer video communication — all packed into a clean interface.",
             tech_stack: ["Node JS", "React JS", "WebRtc", "Socket IO",],
             image: connectly_image,
-            video: connectly_video,
+            // video: connectly_video,
             github_link: "https://github.com/MuhammadOsman381/Web-Rtc-One-to-One",
             showVideo: false
         },
