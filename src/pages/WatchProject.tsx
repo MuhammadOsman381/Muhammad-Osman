@@ -59,15 +59,6 @@ const WatchProject = () => {
 
     const projectsData: ProjectData[] = [
         {
-            title: "Job-Specific AI Resume Optimizer",
-            description: "Job-Specific AI Resume Optimizer is a web application that helps candidates apply smarter using AI. Users can create jobs directly in the system or capture job details via a LinkedIn browser extension. With a single click on Apply, the AI optimizes the user’s CV for the specific role, making it ATS-friendly, generates a professional job-specific email, creates a polished PDF of the optimized CV, and sends it directly to the recruiter. The platform transforms standard CVs into role-specific resumes, helping candidates improve visibility and increase interview chances with minimal effort.",
-            tech_stack: ["Next JS", "Langchain", "Groq AI","Neon DB", "TypeScript", "QStash", "Puppeteer",],
-            image: resume_enhancer_image,
-            github_link: "https://github.com/MuhammadOsman381/AI-Resume-Updator.git",
-            showVideo: false,
-            live_link: "https://ai-resume-enhancer-mu.vercel.app"
-        },
-        {
             title: "Connectly",
             description: "Connectly is a one-to-one communication platform enabling real-time text messaging and high-quality video calls. Messages are powered by Socket.IO for instant delivery, while WebRTC ensures secure, peer-to-peer video communication — all packed into a clean interface.",
             tech_stack: ["Node JS", "React JS", "WebRtc", "Socket IO",],
@@ -84,6 +75,15 @@ const WatchProject = () => {
             video: aiTubeSummerizer_video,
             github_link: "https://github.com/MuhammadOsman381/Nexora",
             showVideo: false
+        },
+        {
+            title: "Job-Specific AI Resume Optimizer",
+            description: "Job-Specific AI Resume Optimizer is a web application that helps candidates apply smarter using AI. Users can create jobs directly in the system or capture job details via a LinkedIn browser extension. With a single click on Apply, the AI optimizes the user’s CV for the specific role, making it ATS-friendly, generates a professional job-specific email, creates a polished PDF of the optimized CV, and sends it directly to the recruiter. The platform transforms standard CVs into role-specific resumes, helping candidates improve visibility and increase interview chances with minimal effort.",
+            tech_stack: ["Next JS", "Langchain", "Groq AI","Neon DB", "TypeScript", "QStash", "Puppeteer",],
+            image: resume_enhancer_image,
+            github_link: "https://github.com/MuhammadOsman381/AI-Resume-Updator.git",
+            showVideo: false,
+            live_link: "https://ai-resume-enhancer-mu.vercel.app"
         },
         {
             title: "Blogger's Heaven",
