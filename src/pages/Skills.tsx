@@ -48,14 +48,27 @@ const Skills = () => {
 
     return (
         <div id="skills" className={`${isDarkMode ? "bg-zinc-950 text-white" : "bg-white text-zinc-900"} h-auto flex flex-col items-center justify-center   md:p-10 p-7`}>
-            <button className={`${isDarkMode ? "bg-zinc-700  text-zinc-300 hover:bg-zinc-700" : "bg-black text-white   "} text-sm  py-2 px-6 rounded-full `}>
+            {/* <button className={`${isDarkMode ? "bg-zinc-700  text-zinc-300 hover:bg-zinc-700" : "bg-black text-white   "} text-sm  py-2 px-6 rounded-full `}>
                 Technologies
-            </button>
-            <div className="w-full grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-3 mt-6">
+            </button> */}
+
+              <button
+  className={`
+    relative text-sm py-2 px-6 rounded-full transition-all duration-300
+    ${isDarkMode
+      ? "bg-zinc-800 text-zinc-200 shadow-[0_0_10px_rgba(244,244,245,0.35)] hover:shadow-[0_0_25px_rgba(244,244,245,0.6)]"
+      : "bg-zinc-900 text-zinc-100 shadow-[0_0_10px_rgba(113,113,122,0.6)] hover:shadow-[0_0_25px_rgba(113,113,122,0.9)]"
+    }
+  `}
+>
+  Technologies
+</button>
+
+            <div className="w-full rounded-3xl border border-zinc-700 bg-zinc-900 p-5  grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-3 mt-6">
                 {skills.map((skill, index) => (
                     <div
                         key={index}
-                        className={`flex flex-row flex-wrap justify-start items-center gap-3  ${isDarkMode ? "bg-zinc-900   " : "  bg-zinc-200 "}   p-3 rounded-lg  transition-transform transform hover:scale-[103%]`}
+                        className={`flex flex-row flex-wrap justify-start items-center gap-3  ${isDarkMode ? "bg-zinc-800   " : "  bg-zinc-200 "}   p-3 rounded-lg  transition-transform transform hover:scale-[103%]`}
                     >
                         {
                             index === 3 || index === 8 || index === 5 || index === 13  ?

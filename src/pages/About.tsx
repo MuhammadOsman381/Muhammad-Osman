@@ -16,11 +16,23 @@ const About = () => {
             className={`${isDarkMode ? "bg-zinc-950 text-white" : "bg-zinc-100 text-black"
                 } rounded-xl lg:h-auto border-none flex flex-col items-center justify-center py-12 px-6 md:px-12 text-sm`}
         >
-            <button className={`${isDarkMode ? "bg-zinc-700 text-zinc-300 hover:bg-zinc-700" : "bg-black text-white"} text-sm mb-6 py-2 px-6 rounded-full`}>
+
+
+            <button
+                className={`
+    relative text-sm py-2 px-6 rounded-full transition-all duration-300
+    mb-6
+    ${isDarkMode
+                        ? "bg-zinc-800 text-zinc-200 shadow-[0_0_10px_rgba(244,244,245,0.35)] hover:shadow-[0_0_25px_rgba(244,244,245,0.6)]"
+                        : "bg-zinc-900 text-zinc-100 shadow-[0_0_10px_rgba(113,113,122,0.6)] hover:shadow-[0_0_25px_rgba(113,113,122,0.9)]"
+                    }
+  `}
+            >
                 About
             </button>
 
-            <div className="flex flex-col md:flex-row items-center justify-center max-w-6xl gap-12">
+
+            <div className="flex flex-col md:flex-row items-center justify-center max-w-8xl gap-12">
                 <div className="w-full text-center md:w-2/3">
                     <p className={`${isDarkMode ? "text-white" : "text-black"} mb-4`}>
                         Dedicated <span className={`${isDarkMode ? "text-white" : "text-black"} font-bold`}>full stack developer</span> focused on crafting modern, user-friendly digital experiences.

@@ -53,7 +53,16 @@ Implemented secure file uploads and storage for course content using AWS S3.`,
             className={`${isDarkMode ? "bg-zinc-950 text-white" : "bg-zinc-100 text-black"
                 } rounded-xl lg:h-auto border-none flex flex-col items-center justify-center py-12 px-6 md:px-12 text-sm`}
         >
-            <button className={`${isDarkMode ? "bg-zinc-700 text-zinc-300 hover:bg-zinc-700" : "bg-black text-white"} text-sm mb-6 py-2 px-6 rounded-full`}>
+            <button
+                className={`
+                    relative text-sm py-2 px-6 rounded-full transition-all duration-300
+                    mb-6
+                    ${isDarkMode
+                        ? "bg-zinc-800 text-zinc-200 shadow-[0_0_10px_rgba(244,244,245,0.35)] hover:shadow-[0_0_25px_rgba(244,244,245,0.6)]"
+                        : "bg-zinc-900 text-zinc-100 shadow-[0_0_10px_rgba(113,113,122,0.6)] hover:shadow-[0_0_25px_rgba(113,113,122,0.9)]"
+                    }
+                `}
+            >
                 Experience
             </button>
 
@@ -61,7 +70,7 @@ Implemented secure file uploads and storage for course content using AWS S3.`,
                 {experiences.map((exp, idx) => (
                     <div
                         key={idx}
-                        className={`w-full rounded-2xl p-6 border ${isDarkMode ? "border-zinc-700 bg-zinc-900" : "border-gray-300 bg-white shadow-md"
+                        className={`w-full rounded-3xl p-6 border ${isDarkMode ? "border-zinc-700 bg-zinc-900" : "border-gray-300 bg-white shadow-md"
                             }`}
                     >
                         <h3 className="text-lg font-bold mb-1">{exp.role}</h3>
@@ -69,14 +78,14 @@ Implemented secure file uploads and storage for course content using AWS S3.`,
                             {exp.company} | {exp.duration}
                         </p>
 
-                        <div className="flex flex-col gap-4">
+                        <div className="flex flex-col gap-4 ">
                             {exp.projects.map((project, i) => (
-                                <div key={i} className="p-4 rounded-xl border-l-4 border-blue-500">
+                                <div key={i} className="p-4 rounded-xl  bg-zinc-950 border-t-4 md:border-t-0 md:border-l-4 border-zinc-500">
                                     <h4 className="font-semibold">{project.title}</h4>
                                     <p className={`${isDarkMode ? "text-zinc-300" : "text-gray-700"} mt-1 whitespace-pre-line`}>
                                         {project.description}
                                     </p>
-                                    <p className="mt-2 italic text-sm text-blue-500">{project.tech}</p>
+                                    <p className="mt-2 italic text-sm text-zinc-500">{project.tech}</p>
                                 </div>
                             ))}
                         </div>

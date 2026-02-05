@@ -47,10 +47,10 @@ const Projects = () => {
     const isInView = useInView(ref);
 
     const projectsData: ProjectData[] = [
-         {
+        {
             title: "Job-Specific AI Resume Optimizer",
             description: "Job-Specific AI Resume Optimizer is a web application that helps candidates apply smarter using AI. Users can create jobs directly in the system or capture job details via a LinkedIn browser extension. With a single click on Apply, the AI optimizes the user’s CV for the specific role, making it ATS-friendly, generates a professional job-specific email, creates a polished PDF of the optimized CV, and sends it directly to the recruiter. The platform transforms standard CVs into role-specific resumes, helping candidates improve visibility and increase interview chances with minimal effort.",
-            tech_stack: ["Next JS", "Langchain", "Groq AI","Neon DB", "TypeScript", "QStash", "Puppeteer",],
+            tech_stack: ["Next JS", "Langchain", "Groq AI", "Neon DB", "TypeScript", "QStash", "Puppeteer",],
             image: resume_enhancer_image,
             github_link: "https://github.com/MuhammadOsman381/AI-Resume-Updator.git",
             showVideo: true,
@@ -125,23 +125,34 @@ const Projects = () => {
     ];
 
     return (
-        <motion.div 
+        <motion.div
             ref={ref}
-            id='projects' 
+            id='projects'
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 5 }}
-            className={`${isDarkMode && "bg-zinc-950 text-white"} flex flex-col rounded-xl  items-center justify-center gap-6  md:p-10 p-4 bg-gray-100 h-auto`} 
+            className={`${isDarkMode && "bg-zinc-950 text-white"} flex flex-col rounded-xl  items-center justify-center gap-6  md:p-10 p-4 bg-gray-100 h-auto`}
         >
-            <button className={`${isDarkMode ? "bg-zinc-700  text-zinc-300 hover:bg-zinc-700" : "bg-black text-white   "} text-sm  py-2 px-6 rounded-full `}>
+            <button
+                className={`
+    relative text-sm py-2 px-6 rounded-full transition-all duration-300
+    ${isDarkMode
+                        ? "bg-zinc-800 text-zinc-200 shadow-[0_0_10px_rgba(244,244,245,0.35)] hover:shadow-[0_0_25px_rgba(244,244,245,0.6)]"
+                        : "bg-zinc-900 text-zinc-100 shadow-[0_0_10px_rgba(113,113,122,0.6)] hover:shadow-[0_0_25px_rgba(113,113,122,0.9)]"
+                    }
+  `}
+            >
                 Projects
             </button>
+
             {/* <h2 className="text-2xl font-bold  w-full text-center">Some of the noteworthy projects I have built:</h2> */}
-            {
-                projectsData.map((items: ProjectData, index) => (
-                    <ProjectCard data={items} index={index + 1} isDarkMode={isDarkMode} />
-                ))
-            }
+            <div className='bg-zinc-900 border border-zinc-700 lg:p-5 p-2 rounded-3xl max-w-8xl flex flex-col gap-5 w-full h-full' >
+                {
+                    projectsData.map((items: ProjectData, index) => (
+                        <ProjectCard data={items} index={index + 1} isDarkMode={isDarkMode} />
+                    ))
+                }
+            </div>
         </motion.div>
     )
 }

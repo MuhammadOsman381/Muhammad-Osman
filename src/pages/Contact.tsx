@@ -29,14 +29,27 @@ const Contact = () => {
 
             <footer className={`${isDarkMode ? "bg-zinc-950 text-white" : "bg-white text-zinc-900"} py-10`}>
                 <div className="container mx-auto text-center space-y-6">
-                    <button
+                    {/* <button
                         className={`text-sm ${isDarkMode ? "bg-zinc-700 text-zinc-300 hover:bg-zinc-700" : "bg-black text-white"} text-sm  py-2 px-6 rounded-full`}
+                    >
+                        Get in touch
+                    </button> */}
+
+
+                    <button
+                        className={`
+    relative text-sm py-2 px-6 rounded-full transition-all duration-300
+    ${isDarkMode
+                                ? "bg-zinc-800 text-zinc-200 shadow-[0_0_10px_rgba(244,244,245,0.35)] hover:shadow-[0_0_25px_rgba(244,244,245,0.6)]"
+                                : "bg-zinc-900 text-zinc-100 shadow-[0_0_10px_rgba(113,113,122,0.6)] hover:shadow-[0_0_25px_rgba(113,113,122,0.9)]"
+                            }
+  `}
                     >
                         Get in touch
                     </button>
 
                     <p className={`text-sm ${isDarkMode ? "text-zinc-400" : "text-zinc-600"}`}>
-                      Looking for a developer, have a question, or just want to connect? Don’t hesitate to reach out—I’m always open to meaningful conversations and new opportunities.
+                        Looking for a developer, have a question, or just want to connect? Don’t hesitate to reach out—I’m always open to meaningful conversations and new opportunities.
 
                     </p>
 
