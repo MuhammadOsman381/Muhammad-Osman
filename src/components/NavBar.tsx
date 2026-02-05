@@ -21,7 +21,7 @@ const NavBar = () => {
 
     return (
         <div
-            className={`fixed z-50   w-full transition-all duration-300 ease-in-out ${navBg} ${isMenuOpen ? "h-[320px]" : "h-[64px]"
+            className={`fixed z-50    w-full transition-all duration-300 ease-in-out ${navBg} ${isMenuOpen ? "h-[320px]" : "h-[64px]"
                 }`}
         >
             <motion.div className=" h-1 origin-left bg-white w-full" style={{ scaleX: scrollYProgress }} />
@@ -66,7 +66,7 @@ const NavBar = () => {
                                 <a href="/">Home</a>
                             </li>
                         ) : (
-                            ["Home", "About", "Skills", "Projects", "Contact"].map((item, idx) => (
+                            ["Home", "About", "Skills", "Projects", "Contact", "Experience"].map((item, idx) => (
                                 <li key={idx} className={`bg-zinc-800 rounded-xl ml-1`}>
                                     {item === "Home" ? (
                                         <a href="/">{item}</a>
@@ -97,6 +97,7 @@ const NavBar = () => {
                             <li className={`rounded-xl ${linkBg}`}><a href="#skills">Skills</a></li>
                             <li className={`rounded-xl ${linkBg}`}><a href="#projects">Projects</a></li>
                             <li className={`rounded-xl ${linkBg}`}><a href="#contact">Contact</a></li>
+                            <li className={`rounded-xl ${linkBg}`}><a href="#experience">Experience</a></li>
                         </>
                     }
                 </ul>

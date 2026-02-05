@@ -1,6 +1,6 @@
 import { FaMapMarkerAlt, FaGithub } from "react-icons/fa";
 import { BsLinkedin } from "react-icons/bs";
-import profilePic from "../assets/MO-AI-Pic.png";
+import profilePic from "../assets/mo-img.jpeg";
 import "../App.css";
 import { useContext } from "react";
 import { MyContext } from "../Context";
@@ -24,7 +24,7 @@ const Home = () => {
             className={`${isDarkMode ? "bg-zinc-950 text-white" : "bg-white text-black"
                 } flex   items-center justify-center h-[80vh] px-5  lg:h-[80vh]`}
         >
-                <ShootingStars />
+            <ShootingStars />
 
             <div className="max-w-screen-full   mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-10">
                 <div className="text-center md:text-left">
@@ -132,9 +132,9 @@ const Home = () => {
                             repeatType: "loop",
                             ease: "easeInOut",
                         }}
-                        className={`w-64 h-80 sm:w-72 sm:h-96 md:w-80 md:h-[24rem] rounded-3xl overflow-hidden ${isDarkMode
-                            ? "bg-gray-800"
-                            : "bg-gray-800 shadow-none border border-gray-300"
+                        className={`w-64 h-80 sm:w-72 sm:h-96 md:w-80 md:h-[24rem] lg:w-96 lg:h-[30rem] rounded-3xl overflow-hidden ${isDarkMode
+                                ? "bg-gray-800"
+                                : "bg-gray-800 shadow-none border border-gray-300"
                             }`}
                     >
                         <img
@@ -144,6 +144,7 @@ const Home = () => {
                         />
                     </motion.div>
                 </div>
+
             </div>
         </section>
     );

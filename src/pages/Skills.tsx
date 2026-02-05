@@ -9,8 +9,8 @@ import laravel from "../assets/skills/laravel.png"
 import socket from "../assets/skills/socket.png"
 // import springBoot from "../assets/skills/springBoot.png"
 import ts from "../assets/skills/ts.png"
-// import shadcn from "../assets/skills/shadcn.png"
-// import flask from "../assets/skills/flask.png"
+import shadcn from "../assets/skills/shadcn.png"
+import fastapi from "../assets/skills/fastapi.png"
 import github from "../assets/skills/github.jpeg"
 import tailwind from "../assets/skills/tailwind.png"
 import postgres from "../assets/skills/postgres.png"
@@ -38,9 +38,9 @@ const Skills = () => {
         { title: "Laravel", image: laravel },
         { title: "MySQL", image: mysql },
         { title: "PostgreSql", image: postgres },
-        // { title: "Spring Boot", image: springBoot },
+        { title: "Fast API", image: fastapi },
         { title: "Tailwind CSS", image: tailwind },
-        // { title: "ShadCN", image: shadcn },
+        { title: "ShadCN", image: shadcn },
         // { title: "Flask", image: flask },
         { title: "Socket IO", image: socket },
         { title: "GitHub", image: github },
@@ -50,7 +50,7 @@ const Skills = () => {
         <div id="skills" className={`${isDarkMode ? "bg-zinc-950 text-white" : "bg-white text-zinc-900"} h-auto flex flex-col items-center justify-center   md:p-10 p-7`}>
             <button className={`${isDarkMode ? "bg-zinc-700  text-zinc-300 hover:bg-zinc-700" : "bg-black text-white   "} text-sm  py-2 px-6 rounded-full `}>
                 Technologies
-            </button> 
+            </button>
             <div className="w-full grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-3 mt-6">
                 {skills.map((skill, index) => (
                     <div
@@ -58,17 +58,17 @@ const Skills = () => {
                         className={`flex flex-row flex-wrap justify-start items-center gap-3  ${isDarkMode ? "bg-zinc-900   " : "  bg-zinc-200 "}   p-3 rounded-lg  transition-transform transform hover:scale-[103%]`}
                     >
                         {
-                            index === 3 || index === 5 || index === 11 ?
+                            index === 3 || index === 8 || index === 5 || index === 13  ?
                                 <>
-                                    <span className={`  bg-white rounded-full  `} >
-                                        <img src={skill.image} alt={skill.title} className="w-5 h-5   object-contain rounded-sm" />
+                                    <span className={`  bg-white  rounded-full  `} >
+                                        <img src={skill.image} alt={skill.title} className="w-7 h-7   object-contain rounded-sm" />
                                     </span>
                                     <p className={`text-sm ${isDarkMode ? "text-zinc-300" : "text-black"} font-medium`}>{skill.title}</p>
                                 </>
                                 :
 
                                 <>
-                                    <img src={skill.image} alt={skill.title} className="w-5 h-5 object-contain rounded-sm" />
+                                    <img src={skill.image} alt={skill.title} className="w-7 h-7 object-contain rounded-sm" />
                                     <p className={`text-sm ${isDarkMode ? "text-zinc-300" : "text-black"} font-medium`}>{skill.title}</p>
                                 </>
                         }

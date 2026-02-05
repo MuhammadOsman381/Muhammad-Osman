@@ -28,7 +28,7 @@ const ProjectCard = ({ data, index, isDarkMode }: ProjectData) => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             className={`${isDarkMode ? "bg-zinc-900  " : "bg-zinc-200 "
-                } rounded-2xl  max-w-full  flex ${index % 2 == 0 ? "xl:flex-row-reverse" : "xl:flex-row"}     flex-col  `}
+                } rounded-2xl  max-w-full  flex ${index % 2 == 0 ? "xl:flex-row-reverse" : "xl:flex-row"}  mt-20     flex-col  `}
         >
 
             <div className={`w-full lg:w-full bg-zinc-950  flex justify-center items-center  `}>
