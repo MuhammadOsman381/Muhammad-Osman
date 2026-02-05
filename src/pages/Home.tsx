@@ -25,8 +25,8 @@ const Home = () => {
                 } flex   items-center justify-center h-[80vh] px-5  lg:h-[80vh]`}
         >
             <ShootingStars />
-
-            <div className="max-w-screen-full   mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-10">
+            
+            <div className="max-w-8xl flex flex-col-reverse md:flex-row  items-center justify-between gap-10">
                 <div className="text-center md:text-left">
                     <h1 className="text-2xl md:text-4xl font-bold">
                         <span>Hi, I’m </span>
@@ -133,8 +133,8 @@ const Home = () => {
                             ease: "easeInOut",
                         }}
                         className={`w-64 h-80 sm:w-72 sm:h-96 md:w-80 md:h-[24rem] lg:w-96 lg:h-[30rem] rounded-3xl overflow-hidden ${isDarkMode
-                                ? "bg-gray-800"
-                                : "bg-gray-800 shadow-none border border-gray-300"
+                                ? "bg-gray-800 shadow-2xl shadow-gray-700/50 "
+                                : "bg-white shadow-none border border-gray-300"
                             }`}
                     >
                         <img
