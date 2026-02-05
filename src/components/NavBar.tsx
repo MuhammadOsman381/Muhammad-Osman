@@ -66,7 +66,7 @@ const NavBar = () => {
                                 <a href="/">Home</a>
                             </li>
                         ) : (
-                            ["Home", "About", "Skills", "Projects", "Contact", "Experience"].map((item, idx) => (
+                            ["Home", "About", "Experience","Skills", "Projects", "Contact", ].map((item, idx) => (
                                 <li key={idx} className={`bg-zinc-800 rounded-xl ml-1`}>
                                     {item === "Home" ? (
                                         <a href="/">{item}</a>
