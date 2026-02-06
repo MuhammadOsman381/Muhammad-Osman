@@ -12,9 +12,9 @@ const Experience = () => {
 
     const experiences = [
         {
-            role: "Associate Software Engineer — Probation",
+            role: "Associate Software Engineer",
             company: "Cybrify",
-            duration: "Sept 2025 – Nov 2025",
+            // duration: "Sept 2025 – Nov 2025",
             projects: [
                 {
                     title: "HolyVibes – Learning Management System (LMS)",
@@ -70,25 +70,33 @@ Implemented secure file uploads and storage for course content using AWS S3.`,
                 {experiences.map((exp, idx) => (
                     <div
                         key={idx}
-                        className={`w-full rounded-3xl p-6 border ${isDarkMode ? "border-zinc-700 bg-zinc-900" : "border-gray-300 bg-white shadow-md"
+                        className={`w-full rounded-3xl lg:p-5 p-3 border ${isDarkMode ? "border-zinc-700 bg-zinc-900" : "border-gray-300 bg-white shadow-md"
                             }`}
                     >
-                        <h3 className="text-lg font-bold mb-1">{exp.role}</h3>
-                        <p className={`${isDarkMode ? "text-zinc-300" : "text-gray-600"} mb-4`}>
-                            {exp.company} | {exp.duration}
-                        </p>
 
-                        <div className="flex flex-col gap-4 ">
-                            {exp.projects.map((project, i) => (
-                                <div key={i} className="p-4 rounded-xl  bg-zinc-950 border-t-4 md:border-t-0 md:border-l-4 border-zinc-500">
-                                    <h4 className="font-semibold">{project.title}</h4>
-                                    <p className={`${isDarkMode ? "text-zinc-300" : "text-gray-700"} mt-1 whitespace-pre-line`}>
-                                        {project.description}
-                                    </p>
-                                    <p className="mt-2 italic text-sm text-zinc-500">{project.tech}</p>
-                                </div>
-                            ))}
+                        <div className="px-3 py-2" >
+                            <h3 className="text-lg font-bold mb-1">{exp.role}</h3>
+                            <p className={`${isDarkMode ? "text-zinc-300" : "text-gray-600"} mb-4`}>
+                                {exp.company} 
+                            </p>
                         </div>
+
+
+
+                        <div className="w-full " >
+                            <div className="flex flex-col gap-4 ">
+                                {exp.projects.map((project, i) => (
+                                    <div key={i} className="p-4 rounded-xl  bg-zinc-950 border-t-4 md:border-t-0 md:border-l-4 border-zinc-500">
+                                        <h4 className="font-semibold">{project.title}</h4>
+                                        <p className={`${isDarkMode ? "text-zinc-300" : "text-gray-700"} mt-1 whitespace-pre-line`}>
+                                            {project.description}
+                                        </p>
+                                        <p className="mt-2 italic text-sm text-zinc-500">{project.tech}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
                     </div>
                 ))}
             </div>
