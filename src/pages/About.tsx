@@ -31,21 +31,11 @@ const About = () => {
                 About
             </button>
 
-
-            <div className="flex flex-col md:flex-row items-center justify-center max-w-8xl gap-12">
-                <div className="w-full text-center md:w-2/3">
-                    <p className={`${isDarkMode ? "text-white" : "text-black"} mb-4`}>
-                        Dedicated <span className={`${isDarkMode ? "text-white" : "text-black"} font-bold`}>full stack developer</span> focused on crafting modern, user-friendly digital experiences.
-                    </p>
-
-                    <p className={`${isDarkMode ? "text-zinc-300" : "text-black"} mb-4`}>
-                        Started the development journey in 2023, consistently embracing new challenges to grow professionally. Currently pursuing a BSCS from NFC-IET Multan, with over a year of hands-on experience in web development.
-                    </p>
-
-                    <p className={`${isDarkMode ? "text-zinc-300" : "text-black"} mb-6`}>
-                        Open to freelance opportunities and eager to collaborate on impactful digital solutions that drive innovation and deliver real value.
-                    </p>
-                </div>
+            <div className="text-center text-zinc-400">
+                Full Stack Software Developer with hands-on experience building scalable, <br /> AI-powered web
+                applications using React.js, Node.js, FastAPI, and AWS. <br /> Skilled in secure authentication, REST APIs,
+                database-driven systems, and Agile development, <br /> with proven experience delivering production-
+                ready solutions.
             </div>
         </section>
     );

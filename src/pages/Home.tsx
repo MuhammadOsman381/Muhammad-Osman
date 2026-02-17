@@ -26,7 +26,7 @@ const Home = () => {
         >
             <ShootingStars />
             
-            <div className="max-w-8xl flex flex-col-reverse md:flex-row  items-center justify-between gap-10">
+            <div className="max-w-full flex flex-col-reverse md:flex-row  items-center justify-between gap-10">
                 <div className="text-center md:text-left">
                     <h1 className="text-2xl md:text-4xl font-bold">
                         <span>Hi, I’m </span>
@@ -55,21 +55,7 @@ const Home = () => {
                         >
                             Full Stack Developer
                         </span>{" "}
-                        with over a year of experience, specializing in building scalable web applications using{" "}
-                        <span
-                            className={`font-bold ${isDarkMode ? "text-white" : "text-black"
-                                }`}
-                        >
-                            React.js
-                        </span>{" "}
-                        and{" "}
-                        <span
-                            className={`font-bold ${isDarkMode ? "text-white" : "text-black"
-                                }`}
-                        >
-                            Node.js
-                        </span>
-                        .
+                        with a year of experience, specializing in building scalable web applications.
                     </p>
 
 
