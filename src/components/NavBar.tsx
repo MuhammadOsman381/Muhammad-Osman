@@ -15,13 +15,15 @@ const NavBar = () => {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const navBg = isDarkMode ? `bg-zinc-950 text-white` : "bg-zinc-100 text-black";
+    const navBg = isDarkMode ? `bg-zinc-950  text-white` : "bg-zinc-100 text-black";
     const linkBg = isDarkMode ? `bg-zinc-800 hover:bg-zinc-700 text-white` : "bg-zinc-100 hover:bg-zinc-200 text-black";
     const { scrollYProgress } = useScroll()
 
+    
+
     return (
         <div
-            className={`fixed z-50    w-full transition-all duration-300 ease-in-out ${navBg} ${isMenuOpen ? "h-[320px]" : "h-[64px]"
+            className={`fixed z-50    w-full transition-all duration-300 ease-in-out ${navBg} ${isMenuOpen ? "h-[400px]" : "h-[64px]"
                 }`}
         >
             <motion.div className=" h-1 origin-left bg-white w-full" style={{ scaleX: scrollYProgress }} />
@@ -54,7 +56,7 @@ const NavBar = () => {
                             repeatType: "loop",
                             ease: "easeInOut",
                         }}
-                        className={`btn btn-sm btn-ghost font-bold text-xl ${isDarkMode ? "text-white" : "text-zinc-900"}`}>
+                        className={`btn btn-sm btn-ghost font-bold  text-xl ${isDarkMode ? "text-white" : "text-zinc-900"}`}>
                         {"<MO/>"}
                     </motion.a>
                 </div>
@@ -66,7 +68,7 @@ const NavBar = () => {
                                 <a href="/">Home</a>
                             </li>
                         ) : (
-                            ["Home", "About", "Experience","Skills", "Projects", "Contact", ].map((item, idx) => (
+                            ["Home", "About", "Education", "Experience","Skills", "Projects", "Contact", ].map((item, idx) => (
                                 <li key={idx} className={`bg-zinc-800 rounded-xl ml-1`}>
                                     {item === "Home" ? (
                                         <a href="/">{item}</a>
@@ -85,7 +87,7 @@ const NavBar = () => {
             </div>
 
             <div
-                className={`lg:hidden flex flex-col items-start px-4 transition-all duration-500 ease-in-out overflow-hidden ${isMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10 pointer-events-none"
+                className={`lg:hidden flex flex-col items-start px-4 transition-all duration-500 ease-in-out overflow-hidden ${isMenuOpen ? " opacity-100 translate-y-0" : "opacity-0 -translate-y-10 pointer-events-none"
                     }`}
             >
                 <ul onClick={() => setIsMenuOpen(false)} className="menu flex flex-col gap-2 mt-2 w-full">
@@ -94,10 +96,11 @@ const NavBar = () => {
                         !location.pathname.startsWith('/watch') &&
                         <>
                             <li className={`rounded-xl ${linkBg}`}><a href="#about">About</a></li>
+                            <li className={`rounded-xl ${linkBg}`}><a href="#education">Education</a></li>
+                            <li className={`rounded-xl ${linkBg}`}><a href="#experience">Experience</a></li>
                             <li className={`rounded-xl ${linkBg}`}><a href="#skills">Skills</a></li>
                             <li className={`rounded-xl ${linkBg}`}><a href="#projects">Projects</a></li>
                             <li className={`rounded-xl ${linkBg}`}><a href="#contact">Contact</a></li>
-                            <li className={`rounded-xl ${linkBg}`}><a href="#experience">Experience</a></li>
                         </>
                     }
                 </ul>

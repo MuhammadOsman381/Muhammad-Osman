@@ -4,6 +4,7 @@ import Skills from "./Skills";
 import Projects from "./Projects";
 import Contact from "./Contact";
 import Experience from "./Experience";
+import Education from "./Education";
 
 const Main = () => {
 
@@ -12,6 +13,7 @@ const Main = () => {
             <div className="container  lg:mt-16 mt-24 ">
                 <Home />
                 <About />
+                <Education />
                 <Experience />
                 <Skills />
                 <Projects />
