@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import NavBar from './components/NavBar';
 import Main from './pages/Main';
 import WatchProject from './pages/WatchProject';
 import { useEffect } from 'react';
