@@ -3,6 +3,8 @@ import NavBar from './components/NavBar';
 import Main from './pages/Main';
 import WatchProject from './pages/WatchProject';
 import { useEffect } from 'react';
+import { NotFound } from './pages/NotFound';
+import { Layout } from './pages/Layout';
 
 function App() {
   useEffect(() => {
@@ -41,11 +43,14 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="follower fixed top-0 left-0 w-5 h-5 bg-white rounded-full z-[9999] pointer-events-none mix-blend-difference transition-all duration-75"></div>
-      <NavBar />
       <Routes>
-        <Route path='/' element={<Main />} />
-        <Route path="/watch/:video_no" element={<WatchProject />} />
+        <Route element={<Layout />}>
+          <Route path="/" element={<Main />} />
+          <Route path="/watch/:video_no" element={<WatchProject />} />
+        </Route>
+
+        {/* 404 without navbar */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
