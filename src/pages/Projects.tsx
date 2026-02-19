@@ -69,7 +69,7 @@ const Projects = () => {
         {
             title: "Nexora",
             description: "A full-stack SaaS application that allows users to create chat sessions by entering a website URL or title, and scrape website content using Puppeteer. The scraped data is then processed using LangChain and Google GenAI to generate a custom AI model for each chat. Users can ask questions based on the website's content. The app also includes a subscription system, enabling users to unlock more chats and premium features.",
-            tech_stack: ["Node JS", "React JS", "Langchain", "Stripe", "Google Gen AI Model",],
+            tech_stack: ["Node JS", "React JS", "Langchain", "Stripe", "Google Gen AI Model", "Pinecone", "Puppeteer"],
             image: nexora_image,
             video: aiTubeSummerizer_video,
             github_link: "https://github.com/MuhammadOsman381/Nexora",

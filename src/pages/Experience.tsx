@@ -31,7 +31,7 @@ const Experience = () => {
                         "Centralize job listings, validate and enrich scraped job data, allow admin-controlled course management, and enable secure content uploads.",
                     solution:
                         "Built scraping pipeline using BeautifulSoup & Selenium, created admin dashboard for course management, integrated AWS S3 for secure storage, and structured validated job database.",
-                    tech: "React.js, FastAPI, PostgreSQL, LangChain, AWS S3",
+                    tech: "React.js, FastAPI, PostgreSQL, LangChain, AWS S3, Beautiful Soup, Selenium",
                     labelColors: { req: "text-blue-500", sol: "text-green-500", tech: "text-purple-500" }
                 },
             ]
