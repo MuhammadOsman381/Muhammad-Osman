@@ -26,11 +26,16 @@ export default function Projects() {
       <div className="max-w-6xl mx-auto px-6">
         <motion.div initial={{ opacity: 0, x: -20 }} animate={inView ? { opacity: 1, x: 0 } : {}} className="flex items-center gap-3 mb-4">
           <span className="font-mono-code text-xs text-cyan-500 tracking-[0.25em] uppercase">03 —</span>
-          <span className="font-mono-code text-xs text-slate-500 tracking-wider uppercase">Featured Projects</span>
+          <span className="font-mono-code text-xs text-slate-500 tracking-wider uppercase">My Creations</span>
         </motion.div>
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-14">
-          <motion.h2 initial={{ opacity: 0, y: 25 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.1 }} className="font-display font-bold text-5xl md:text-6xl text-white">
-            Work That <span className="text-cyan-gradient">Ships</span>
+          <motion.h2
+            initial={{ opacity: 0, y: 25 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.1 }}
+            className="font-display font-bold text-5xl md:text-6xl text-white"
+          >
+            Projects That <span className="text-cyan-gradient">Shine</span>
           </motion.h2>
           <motion.a initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ delay: 0.4 }} href="https://github.com/MuhammadOsman381" target="_blank" className="group flex items-center gap-1.5 text-sm text-slate-500 hover:text-cyan-400 transition-colors font-body-custom">
             All on GitHub <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />

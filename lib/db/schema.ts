@@ -1,4 +1,4 @@
-import { pgTable, serial, text, boolean, integer, timestamp, varchar } from "drizzle-orm/pg-core";
+import { pgTable, serial, text, boolean, integer, timestamp, varchar, json } from "drizzle-orm/pg-core";
 
 // ── Admin users ──────────────────────────────────────────────────────────────
 export const admins = pgTable("admins", {
@@ -66,5 +66,29 @@ export const contactMessages = pgTable("contact_messages", {
   subject: varchar("subject", { length: 300 }).notNull().default(""),
   message: text("message").notNull(),
   read: boolean("read").notNull().default(false),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const about = pgTable("about", {
+  id: serial("id").primaryKey(),
+  bio: text("bio").default(""),
+  highlights: json("highlights").default([]),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const stats = pgTable("stats", {
+  id: serial("id").primaryKey(),
+  shipped: varchar("shipped", { length: 300 }).default(""),
+  experience: varchar("experience", { length: 300 }).default(""),
+  aiProjects: varchar("aiProjects", { length: 300 }).default(""),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+
+export const currentProject = pgTable("current_project", {
+  id: serial("id").primaryKey(),
+  title: varchar("title", { length: 300 }).default(""),
+  description: varchar("description", { length: 300 }).default(""),
+  technologies: varchar("tech", { length: 300 }).default(""),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });

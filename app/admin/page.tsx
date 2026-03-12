@@ -33,7 +33,7 @@ export default function AdminDashboard() {
   ];
 
   return (
-    <div>
+    <div className="br" >
       <div className="mb-8">
         <h1 className="font-display text-3xl font-bold text-white mb-1">Welcome back 👋</h1>
         <p className="text-slate-500 text-sm">Manage your portfolio content from here.</p>
@@ -61,6 +61,7 @@ export default function AdminDashboard() {
           </motion.div>
         ))}
       </div>
+     
     </div>
   );
 }

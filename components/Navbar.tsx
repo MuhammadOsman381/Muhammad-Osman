@@ -28,12 +28,11 @@ export default function Navbar() {
         initial={{ y: -90, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled ? "glass-strong border-b border-white/[0.04] py-3" : "bg-transparent py-5"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "glass-strong border-b border-white/[0.04] py-3" : "bg-transparent py-5"
+          }`}
       >
         <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-          {/* Logo */}
+
           <a href="#" className="group flex items-center gap-2.5">
             <div className="relative w-9 h-9 flex items-center justify-center">
               <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-cyan-400/20 to-indigo-500/20 border border-cyan-500/25 group-hover:border-cyan-400/50 transition-all duration-300" />
@@ -48,7 +47,6 @@ export default function Navbar() {
             </div>
           </a>
 
-          {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-1">
             {NAV_LINKS.map((link, i) => (
               <motion.a
@@ -58,9 +56,8 @@ export default function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.08 * i + 0.35 }}
                 onClick={() => setActive(link.label)}
-                className={`relative px-4 py-2 text-sm font-body-custom tracking-wide rounded-lg group transition-all duration-300 ${
-                  active === link.label ? "text-cyan-300" : "text-slate-400 hover:text-slate-200"
-                }`}
+                className={`relative px-4 py-2 text-sm font-body-custom tracking-wide rounded-lg group transition-all duration-300 ${active === link.label ? "text-cyan-300" : "text-slate-400 hover:text-slate-200"
+                  }`}
               >
                 {active === link.label && (
                   <motion.span

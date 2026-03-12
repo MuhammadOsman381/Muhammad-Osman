@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { MapPin, GraduationCap, Coffee, Lightbulb, Github, Linkedin, Globe, Mail, Phone } from "lucide-react";
+import * as Icons from "lucide-react";
 
 const HIGHLIGHTS = [
   { icon: MapPin, text: "Multan, Pakistan · Remote Worldwide" },
@@ -40,16 +41,102 @@ type Experience = {
 };
 
 
+
+interface StringIconsProps {
+  iconStringFromDB: string;
+  size?: number;
+}
+
+const StringIcons = ({ iconStringFromDB, size = 24 }: StringIconsProps) => {
+  // Clean the string from DB to match icon names if needed
+  const cleanIconName = iconStringFromDB.replace(/\s+/g, '');
+  const IconComponent = (Icons as any)[cleanIconName];
+
+  return IconComponent ? <IconComponent size={size} /> : <span>{iconStringFromDB}</span>;
+};
+
+
 export default function About() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
+
+
   const [experiences, setExperiences] = useState<Experience[]>([]);
+  const [about, setAbout] = useState({
+    bio: "",
+    highlights: [{ icon: "", text: "" }]
+  })
+  const [states, setStates] = useState<{ value: string | number; label: string }[]>([]);
+
+  const [project, setProject] = useState({
+    title: "",
+    description: "",
+    technologies: [""]
+  })
+
+  async function getAbout() {
+    try {
+      const res = await fetch("/api/about");
+      if (!res.ok) throw new Error("Failed to fetch");
+      const data = await res.json();
+      setAbout({
+        bio: data.data.bio,
+        highlights: data.data.highlights,
+      })
+      return data;
+    } catch (err) {
+      console.error(err);
+      return null;
+    }
+  }
+
+
+  async function getState() {
+    try {
+      const res = await fetch("/api/state");
+      if (!res.ok) throw new Error("Failed to fetch");
+      const data = await res.json();
+
+      // Map API response into array of { value, label }
+      setStates([
+        { value: data.shipped || 0, label: "Projects Shipped" },
+        { value: data.aiProjects || 0, label: "AI Systems Built" },
+        { value: data.experience || 0, label: "Years Experience" },
+        { value: 100, label: "Remote Ready" },
+      ]);
+
+      return data;
+    } catch (err) {
+      console.error(err);
+      return null;
+    }
+  }
+
+
+  async function getProject() {
+    try {
+      const res = await fetch("/api/current-project");
+      if (!res.ok) throw new Error("Failed to fetch");
+      const data = await res.json();
+      setProject(data)
+      return data;
+    } catch (err) {
+      console.error(err);
+      return null;
+    }
+  }
+
 
   useEffect(() => {
     fetch("/api/experience").then((r) => r.json()).then(setExperiences).catch(console.error);
   }, []);
 
+  useEffect(() => {
+    getAbout()
+    getState()
+    getProject()
+  }, [])
   return (
     <section id="about" className="relative py-32 overflow-hidden" ref={ref}>
       <div className="section-divider mb-0 absolute top-0 left-0 right-0" />
@@ -74,16 +161,11 @@ export default function About() {
                 variants={item}
                 className="font-display font-bold text-5xl md:text-6xl text-white mb-6 leading-tight"
               >
-                Crafting Digital{" "}
-                <span className="text-cyan-gradient">Experiences</span>{" "}
-                That Matter
+                Building <span className="text-cyan-gradient">Digital Experiences</span>
               </motion.h2>
 
               <motion.p variants={item} className="text-slate-400 leading-relaxed mb-4 text-[15px]">
-               Full Stack Software Developer with hands-on experience building scalable,
-AI-powered web applications using React.js, Node.js, FastAPI, and AWS.
-Skilled in secure authentication, REST APIs, database-driven systems, and Agile development,
-with proven experience delivering production- ready solutions.
+                {about?.bio}
               </motion.p>
 
               {/* <motion.p variants={item} className="text-slate-400 leading-relaxed mb-8 text-[15px]">
@@ -94,14 +176,14 @@ with proven experience delivering production- ready solutions.
 
               {/* Highlights */}
               <motion.div variants={container} className="space-y-3">
-                {HIGHLIGHTS.map(({ icon: Icon, text }) => (
+                {about?.highlights?.map(({ icon, text }) => (
                   <motion.div
                     key={text}
                     variants={item}
                     className="flex items-center gap-3 group"
                   >
                     <div className="w-8 h-8 rounded-lg bg-cyan-500/8 border border-cyan-500/15 flex items-center justify-center shrink-0 group-hover:bg-cyan-500/15 group-hover:border-cyan-400/30 transition-all duration-300">
-                      <Icon size={14} className="text-cyan-400" />
+                      <StringIcons iconStringFromDB={icon} size={18} />
                     </div>
                     <span className="text-sm text-slate-400 group-hover:text-slate-300 transition-colors">{text}</span>
                   </motion.div>
@@ -114,11 +196,8 @@ with proven experience delivering production- ready solutions.
 
               {/* Stats grid */}
               <motion.div variants={item}>
-                <p className="font-mono-code text-[10px] text-slate-600 uppercase tracking-widest mb-3">
-                  By the numbers
-                </p>
                 <div className="grid grid-cols-2 gap-3">
-                  {STATS.map(({ value, label }, i) => (
+                  {states.map(({ value, label }, i) => (
                     <motion.div
                       key={label}
                       initial={{ opacity: 0, scale: 0.9 }}
@@ -140,7 +219,7 @@ with proven experience delivering production- ready solutions.
               </motion.div>
 
               {/* Connect card */}
-              <motion.div
+              {/* <motion.div
                 variants={item}
                 className="relative glass rounded-2xl p-6 overflow-hidden"
               >
@@ -181,7 +260,7 @@ with proven experience delivering production- ready solutions.
                     </motion.a>
                   ))}
                 </div>
-              </motion.div>
+              </motion.div> */}
 
               {/* Currently building */}
               <motion.div
@@ -195,13 +274,12 @@ with proven experience delivering production- ready solutions.
                     Currently Building
                   </p>
                 </div>
-                <p className="text-white font-medium text-sm mb-1">AI-Based CRO System</p>
+                <p className="text-white font-medium text-sm mb-1">{project.title}</p>
                 <p className="text-slate-500 text-xs leading-relaxed">
-                  A RAG-based AI that analyzes e-commerce stores and generates conversion
-                  optimization recommendations — Final Year Project at NFC-IET.
+                  {project.description}
                 </p>
                 <div className="flex flex-wrap gap-1.5 mt-3">
-                  {["FastAPI", "LangChain", "LangGraph", "Redis", "React", "Vector Database", "Playwright/Selenium"].map((t) => (
+                  {project.technologies.map((t) => (
                     <span
                       key={t}
                       className="px-2 py-0.5 rounded-md text-[10px] font-mono-code text-cyan-400/70 bg-cyan-500/8 border border-cyan-500/15"

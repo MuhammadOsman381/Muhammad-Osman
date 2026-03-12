@@ -1,8 +1,8 @@
 export default {
   schema: "./lib/db/schema.ts",
-  out: "./drizzle",
+  out: "./drizzle/migrations",
   dialect: "postgresql",
-  driver: "pg",
+  driver: "aws-data-api",
   dbCredentials: {
     url: process.env.DATABASE_URL!,
   },

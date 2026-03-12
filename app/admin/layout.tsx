@@ -2,14 +2,17 @@
 import { useState, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
-import { LayoutDashboard, Code2, FolderOpen, Briefcase, MessageSquare, LogOut, Menu, X, ChevronRight } from "lucide-react";
+import { LayoutDashboard, Code2, FolderOpen, Briefcase, MessageSquare, LogOut, Menu, X, ChevronRight, File, User } from "lucide-react";
 
 const NAV = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
+  { href: "/admin/cv", label: "Upload CV", icon: File },
+  { href: "/admin/about", label: "About", icon: User },
   { href: "/admin/skills", label: "Skills", icon: Code2 },
   { href: "/admin/projects", label: "Projects", icon: FolderOpen },
   { href: "/admin/experience", label: "Experience", icon: Briefcase },
   { href: "/admin/messages", label: "Messages", icon: MessageSquare },
+
 ];
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
