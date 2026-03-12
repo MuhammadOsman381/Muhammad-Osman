@@ -19,6 +19,7 @@ export async function GET() {
   }
 }
 
+
 export async function POST(req: NextRequest) {
   const admin = getAdminFromCookies();
   if (!admin) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
