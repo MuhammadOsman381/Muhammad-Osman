@@ -103,7 +103,7 @@ export default function About() {
         { value: data.shipped || 0, label: "Projects Shipped" },
         { value: data.aiProjects || 0, label: "AI Systems Built" },
         { value: data.experience || 0, label: "Years Experience" },
-        { value: 100, label: "Remote Ready" },
+        { value: "100%", label: "Remote Ready" },
       ]);
 
       return data;
