@@ -1,4 +1,8 @@
-node_modules
+# Node modules
+node_modules/
+.next/
+
+# Environment files
 .env
 .env.example
 .env.local
