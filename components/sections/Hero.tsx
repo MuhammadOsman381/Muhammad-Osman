@@ -63,6 +63,18 @@ export default function Hero() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.65], [1, 0]);
 
+  const [url, setUrl] = useState("");
+
+  const getCV = async () => {
+    const res = await fetch("/api/cv");
+    const data = await res.json();
+    setUrl(data.url);
+  }
+
+  useEffect(() => {
+    getCV();
+  }, [])
+
   return (
     <section
       id="hero"
@@ -194,7 +206,7 @@ export default function Hero() {
               </a>
 
               <a
-                href="/assets/Muhammad_Osman_Full_Stack_Developer_CV.pdf"
+                href={url}
                 target="_blank"
                 className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl glass border-cyan-glow text-slate-300 hover:text-white hover:border-cyan-400/40 transition-all duration-300"
               >

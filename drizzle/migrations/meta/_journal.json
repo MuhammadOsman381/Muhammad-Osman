@@ -15,6 +15,13 @@
       "when": 1773304365821,
       "tag": "0001_late_spitfire",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1774190707788,
+      "tag": "0002_violet_frightful_four",
+      "breakpoints": true
     }
   ]
 }

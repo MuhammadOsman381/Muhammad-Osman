@@ -92,3 +92,10 @@ export const currentProject = pgTable("current_project", {
   technologies: varchar("tech", { length: 300 }).default(""),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
+
+
+export const cv = pgTable("cv", {
+  id: serial("id").primaryKey(),
+  url: varchar("url", { length: 300 }).default(""),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
