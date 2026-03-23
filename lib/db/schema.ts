@@ -94,8 +94,9 @@ export const currentProject = pgTable("current_project", {
 });
 
 
-export const cv = pgTable("cv", {
+export const files = pgTable("files", {
   id: serial("id").primaryKey(),
-  url: varchar("url", { length: 300 }).default(""),
+  cv_url: varchar("cv_url", { length: 300 }).default(""),
+  img_url: varchar("img_url", { length: 300 }).default(""),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });

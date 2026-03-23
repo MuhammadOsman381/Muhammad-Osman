@@ -3,7 +3,6 @@ import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { ArrowRight, Download, ChevronDown, Code2, Server, Globe } from "lucide-react";
 import Image from "next/image";
-import mo from "../../assets/mo-img.jpeg"
 
 const ROLES = ["Full Stack Developer", "React Specialist", "API Architect", "AI Integrator"];
 
@@ -58,10 +57,13 @@ export default function Hero() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.65], [1, 0]);
-  const [url, setUrl] = useState("");
+  const [cvUrl, setCVUrl] = useState("");
+  const [imgUrl, setImgUrl] = useState("");
+
 
   useEffect(() => {
-    fetch("/api/cv").then(r => r.json()).then(d => setUrl(d.url));
+    fetch("/api/cv").then(r => r.json()).then(d => setCVUrl(d.url));
+    fetch("/api/image").then(r => r.json()).then(d => setImgUrl(d.url));
   }, []);
 
   return (
@@ -117,7 +119,7 @@ export default function Hero() {
                 className="relative w-60 h-60 lg:w-80 lg:h-80 rounded-full overflow-hidden border-2 border-cyan-500/30 shrink-0"
                 style={{ boxShadow: "0 0 40px rgba(6,182,212,0.2), 0 0 80px rgba(6,182,212,0.08)" }}
               >
-                <Image src={mo} alt="Muhammad Osman" fill className="object-contain bg-white object-center" priority />
+                <Image src={imgUrl} alt="Muhammad Osman" fill className="object-contain bg-white object-center" priority />
                 <div className="absolute inset-0 bg-gradient-to-t from-cyan-900/30 via-transparent to-transparent" />
               </div>
               <motion.div
@@ -228,7 +230,7 @@ export default function Hero() {
                 <ArrowRight className="relative z-10 w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
               </a>
               <a
-                href={url || "#"}
+                href={cvUrl || "#"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl glass border-cyan-glow text-slate-300 hover:text-white hover:border-cyan-400/40 transition-all duration-300"
