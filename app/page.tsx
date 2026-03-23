@@ -16,35 +16,41 @@ export default function Page() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const t = setTimeout(() => setLoading(false), 2100);
+    const t = setTimeout(() => setLoading(false), 2100); // ✅ 3 seconds
     return () => clearTimeout(t);
   }, []);
 
   return (
     <>
-      <AnimatePresence>{loading && <IntroLoader />}</AnimatePresence>
-
-      {!loading && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="relative bg-obsidian min-h-screen"
-        >
-          <Navbar />
-
-          <main>
-            <Hero />
-            <About />
-            <Skills />
-            <Projects />
-            <Experience />
-            <Contact />
-          </main>
-
-          <Footer />
-        </motion.div>
-      )}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: loading ? 0 : 1 }}
+        transition={{ duration: 0.6 }}
+        className="relative bg-obsidian min-h-screen"
+      >
+        <Navbar />
+        <main>
+          <Hero />
+          <About />
+          <Skills />
+          <Projects />
+          <Experience />
+          <Contact />
+        </main>
+        <Footer />
+      </motion.div>
+      <AnimatePresence>
+        {loading && (
+          <motion.div
+            className="fixed inset-0 z-50"
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <IntroLoader />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
