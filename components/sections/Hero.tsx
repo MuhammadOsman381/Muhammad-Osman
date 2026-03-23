@@ -29,9 +29,7 @@ function TypewriterRoles() {
   );
 }
 
-function Particle({
-  x, y, size, delay, color,
-}: {
+function Particle({ x, y, size, delay, color }: {
   x: number; y: number; size: number; delay: number; color: string;
 }) {
   return (
@@ -50,10 +48,8 @@ const PARTICLES = Array.from({ length: 20 }, (_, i) => ({
   size: 2 + (i % 4),
   delay: i * 0.4,
   color:
-    i % 3 === 0
-      ? "rgba(6,182,212,0.5)"
-      : i % 3 === 1
-        ? "rgba(99,102,241,0.4)"
+    i % 3 === 0 ? "rgba(6,182,212,0.5)"
+      : i % 3 === 1 ? "rgba(99,102,241,0.4)"
         : "rgba(34,211,238,0.35)",
 }));
 
@@ -62,18 +58,11 @@ export default function Hero() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.65], [1, 0]);
-
   const [url, setUrl] = useState("");
 
-  const getCV = async () => {
-    const res = await fetch("/api/cv");
-    const data = await res.json();
-    setUrl(data.url);
-  }
-
   useEffect(() => {
-    getCV();
-  }, [])
+    fetch("/api/cv").then(r => r.json()).then(d => setUrl(d.url));
+  }, []);
 
   return (
     <section
@@ -81,21 +70,12 @@ export default function Hero() {
       ref={ref}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background grid */}
       <div className="absolute inset-0 animated-grid opacity-70" />
       <div className="absolute inset-0 scanline-overlay" />
-
-      {/* Glow orbs */}
       <div className="orb w-[700px] h-[500px] bg-cyan-500/8 top-[-10%] left-[-10%] animate-float-a" />
       <div className="orb w-[500px] h-[500px] bg-indigo-500/7 bottom-[-5%] right-[-8%] animate-float-b" />
       <div className="orb w-[400px] h-[400px] bg-violet-600/5 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-
-      {/* Particles */}
-      {PARTICLES.map((p, i) => (
-        <Particle key={i} {...p} />
-      ))}
-
-      {/* Rotating rings */}
+      {PARTICLES.map((p, i) => <Particle key={i} {...p} />)}
       <motion.div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-500/5"
         style={{ width: 650, height: 650 }}
@@ -109,22 +89,70 @@ export default function Hero() {
         transition={{ duration: 70, repeat: Infinity, ease: "linear" }}
       />
 
-      {/* Main content */}
       <motion.div
         style={{ y, opacity }}
         className="relative z-10 w-full max-w-6xl mx-auto px-6 pt-24 pb-16"
       >
-        <div className="grid lg:grid-cols-5 gap-12 items-center">
+        <div className="flex flex-col lg:grid lg:grid-cols-5 gap-6 lg:gap-12 items-center">
 
-          {/* Left column */}
-          <div className="lg:col-span-3 min-w-0">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-2 flex items-center justify-center lg:order-last"
+          >
+            <div className="relative flex items-center justify-center">
+              <div className="absolute w-48 h-48 lg:w-64 lg:h-64 rounded-full bg-gradient-to-br from-cyan-500/25 to-indigo-600/20 blur-2xl" />
+              <motion.div
+                className="absolute w-[160px] h-[160px] lg:w-[280px] lg:h-[280px] rounded-full border border-dashed border-cyan-500/20"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              />
+              <motion.div
+                className="absolute w-[195px] h-[195px] lg:w-[320px] lg:h-[320px] rounded-full border border-dashed border-indigo-500/10"
+                animate={{ rotate: -360 }}
+                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+              />
+              <div
+                className="relative w-60 h-60 lg:w-80 lg:h-80 rounded-full overflow-hidden border-2 border-cyan-500/30 shrink-0"
+                style={{ boxShadow: "0 0 40px rgba(6,182,212,0.2), 0 0 80px rgba(6,182,212,0.08)" }}
+              >
+                <Image src={mo} alt="Muhammad Osman" fill className="object-contain bg-white object-center" priority />
+                <div className="absolute inset-0 bg-gradient-to-t from-cyan-900/30 via-transparent to-transparent" />
+              </div>
+              <motion.div
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-0 -right-4 glass border-cyan-glow rounded-xl px-3 py-2 flex items-center gap-2"
+              >
+                <Code2 size={13} className="text-cyan-400" />
+                <span className="font-mono-code text-[11px] text-slate-300">Full Stack</span>
+              </motion.div>
+              <motion.div
+                animate={{ y: [0, 6, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="absolute bottom-0 -left-4 glass border-cyan-glow rounded-xl px-3 py-2 flex items-center gap-2"
+              >
+                <Server size={13} className="text-indigo-400" />
+                <span className="font-mono-code text-[11px] text-slate-300">AI + APIs</span>
+              </motion.div>
+              <motion.div
+                animate={{ y: [0, -5, 0] }}
+                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                className="absolute bottom-4 -right-8 glass border-cyan-glow rounded-xl px-3 py-2 flex items-center gap-2"
+              >
+                <Globe size={13} className="text-teal-400" />
+                <span className="font-mono-code text-[11px] text-slate-300">Remote Ready</span>
+              </motion.div>
+            </div>
+          </motion.div>
 
-            {/* Status badge */}
+          <div className="lg:col-span-3 min-w-0 lg:order-first text-center lg:text-left">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
-              className="inline-flex items-center gap-2.5 glass border-cyan-glow rounded-full px-4 py-2 mb-8"
+              className="inline-flex items-center gap-2.5 glass border-cyan-glow rounded-full px-4 py-2 mb-6"
             >
               <span className="relative flex w-2.5 h-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60" />
@@ -135,7 +163,6 @@ export default function Hero() {
               <span className="font-mono-code text-xs text-cyan-400">Open to remote</span>
             </motion.div>
 
-            {/* Hello label */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -145,8 +172,7 @@ export default function Hero() {
               Hello, I&apos;m
             </motion.p>
 
-            {/* Name — single wrapper, NO overflow-hidden so letters never clip */}
-            <div className="mb-5">
+            <div className="mb-4">
               <motion.h1
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -167,32 +193,29 @@ export default function Hero() {
               </motion.h1>
             </div>
 
-            {/* Rotating role */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="font-display text-xl md:text-2xl font-medium mb-5 h-9 flex items-center"
+              className="font-display text-xl md:text-2xl font-medium mb-4 h-9 flex items-center lg:justify-start justify-center"
             >
               <TypewriterRoles />
             </motion.div>
 
-            {/* Description */}
             <motion.p
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.65 }}
-              className="text-slate-400 leading-relaxed mb-8 max-w-lg text-[15px]"
+              className="text-slate-400 leading-relaxed mb-7 max-w-lg text-[15px] mx-auto lg:mx-0"
             >
               I build high-performance web applications from frontend to backend, focusing on clean code and great user experience.
             </motion.p>
 
-            {/* CTA buttons */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
-              className="flex flex-wrap gap-4"
+              className="flex flex-wrap gap-4 justify-center lg:justify-start"
             >
               <a
                 href="#projects"
@@ -204,10 +227,10 @@ export default function Hero() {
                 <span className="relative z-10 font-medium text-white text-sm tracking-wide">View Projects</span>
                 <ArrowRight className="relative z-10 w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
               </a>
-
               <a
-                href={url}
+                href={url || "#"}
                 target="_blank"
+                rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl glass border-cyan-glow text-slate-300 hover:text-white hover:border-cyan-400/40 transition-all duration-300"
               >
                 <Download className="w-4 h-4" />
@@ -216,81 +239,9 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right column — Profile image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, x: 30 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-2 hidden lg:flex items-center justify-center"
-          >
-            <div className="relative flex items-center justify-center">
-
-              {/* Background glow */}
-              <div className="absolute w-64 h-64 rounded-full bg-gradient-to-br from-cyan-500/25 to-indigo-600/20 blur-2xl" />
-
-              {/* Spinning dashed rings */}
-              <motion.div
-                className="absolute w-[280px] h-[280px] rounded-full border border-dashed border-cyan-500/20"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              />
-              <motion.div
-                className="absolute w-[320px] h-[320px] rounded-full border border-dashed border-indigo-500/10"
-                animate={{ rotate: -360 }}
-                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-              />
-
-              {/* Profile photo */}
-              <div
-                className="relative w-96 h-96 rounded-full overflow-hidden border-2 border-cyan-500/30 shrink-0"
-                style={{ boxShadow: "0 0 40px rgba(6,182,212,0.2), 0 0 80px rgba(6,182,212,0.08)" }}
-              >
-                <Image
-                  src={mo}
-                  alt="Muhammad Osman"
-                  fill
-                  className="object-contain bg-white object-center"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-cyan-900/30 via-transparent to-transparent" />
-              </div>
-
-              {/* Floating badge — top right */}
-              <motion.div
-                animate={{ y: [0, -6, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-2 -right-2 glass border-cyan-glow rounded-xl px-3 py-2 flex items-center gap-2"
-              >
-                <Code2 size={13} className="text-cyan-400" />
-                <span className="font-mono-code text-[11px] text-slate-300">Full Stack</span>
-              </motion.div>
-
-              {/* Floating badge — bottom left */}
-              <motion.div
-                animate={{ y: [0, 6, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute bottom-2 -left-2 glass border-cyan-glow rounded-xl px-3 py-2 flex items-center gap-2"
-              >
-                <Server size={13} className="text-indigo-400" />
-                <span className="font-mono-code text-[11px] text-slate-300">AI + APIs</span>
-              </motion.div>
-
-              {/* Floating badge — bottom right */}
-              <motion.div
-                animate={{ y: [0, -5, 0] }}
-                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                className="absolute bottom-10 -right-6 glass border-cyan-glow rounded-xl px-3 py-2 flex items-center gap-2"
-              >
-                <Globe size={13} className="text-teal-400" />
-                <span className="font-mono-code text-[11px] text-slate-300">Remote Ready</span>
-              </motion.div>
-            </div>
-          </motion.div>
-
         </div>
       </motion.div>
 
-      {/* Scroll hint */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
